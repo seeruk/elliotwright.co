@@ -8,7 +8,8 @@
     },
     "require": {
         "php": ">=5.5.3",
-        "strident/trident": "1.0.1-alpha"
+        "strident/trident": "1.0.2-alpha",
+        "symfony/yaml": "2.5.*"
     },
     "config": {
         "bin-dir": "bin"
@@ -19,3 +20,4 @@
     },
     "minimum-stability": "dev"
 }
+
