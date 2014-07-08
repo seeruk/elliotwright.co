@@ -1,0 +1,7 @@
+app/cache/*
+!public/index.php
+!public/index_dev.php
+!public/.htaccess
+public/*
+vendor/
+composer.lock
