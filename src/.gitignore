@@ -1,0 +1,9 @@
+/app/cache/*
+/bin/
+/build/
+/public/*
+!public/index.php
+!public/index_dev.php
+!public/.htaccess
+/vendor/
+/composer.lock
