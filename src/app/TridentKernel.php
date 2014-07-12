@@ -32,6 +32,7 @@ class TridentKernel extends AbstractKernel
             new Trident\Module\TemplatingModule\TridentTemplatingModule(),
             new Trident\Module\DoctrineModule\TridentDoctrineModule(),
             new Trident\Module\SecurityModule\TridentSecurityModule(),
+            new SeerUK\Module\BlogModule\SeerUKBlogModule(),
         ];
 
         if (in_array($environment, array('dev'))) {

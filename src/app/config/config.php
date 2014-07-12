@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'app' => [
+        'site_name' => 'Elliot Wright'
+    ],
     'caching' => [
         'default' => 'memcached',
         'memcached' => [

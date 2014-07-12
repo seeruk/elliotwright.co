@@ -1,0 +1,20 @@
+{% extends '::master.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <article>
+        <h1 class="title">
+            {{ article.title }}<br />
+            <span class="details">
+                Published {{ article.relativePublished }} in
+
+                {% for category in article.categories %}
+                    {# Show the categories in a readable manner, i.e. "Category, Category, Category, and Category" #}
+                    {% if loop.last %}and {% endif %}<a href="#">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </span>
+        </h1>
+        {{ article.content|raw }}
+    </article>
+{% endblock %}

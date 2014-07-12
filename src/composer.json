@@ -8,7 +8,8 @@
     },
     "require": {
         "php": ">=5.5.3",
-        "strident/trident": "1.0.2-alpha",
+        "raulfraile/ladybug": "v1.0.8",
+        "strident/trident": "1.0.3-alpha4",
         "symfony/yaml": "2.5.*"
     },
     "config": {

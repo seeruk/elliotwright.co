@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}{% if block('title') %} &middot; {% endif %}{{ config.get('app.site_name') }}</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/tridentframeworkmodule/fonts/inconsolata/inconsolata.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/tridentframeworkmodule/fonts/lato/lato.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/seerukblogmodule/css/style.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="brand">{{ config.get('app.site_name') }}</div>
+    </header>
+    {% block body %}{% endblock %}
+</body>
+</html>
