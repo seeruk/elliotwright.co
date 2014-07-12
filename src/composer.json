@@ -9,7 +9,7 @@
     "require": {
         "php": ">=5.5.3",
         "raulfraile/ladybug": "v1.0.8",
-        "strident/trident": "1.0.3-alpha4",
+        "strident/trident": "1.0.5-alpha2",
         "symfony/yaml": "2.5.*"
     },
     "config": {

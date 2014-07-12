@@ -1,0 +1,28 @@
+{% extends '::master.html.twig' %}
+
+{% block title %}Editing ''{% endblock %}
+
+{% block body %}
+    <article>
+        {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            <div class="form-row">
+                {{ form_label(form.title) }}
+                {{ form_widget(form.title, {'attr': {'class': 'input-block'}}) }}<br />
+                {{ form_errors(form.title) }}
+            </div>
+
+            <div class="form-row">
+                {{ form_label(form.content) }}
+                {{ form_widget(form.content, {'attr': {'class': 'input-block input-mono'}}) }}<br />
+                {{ form_errors(form.content) }}
+            </div>
+
+            <div class="form-row">
+                <input class="btn" type="submit" value="Save" />
+                <a class="btn btn-bordered" href="">Cancel</a>
+            </div>
+        {{ form_end(form) }}
+    </article>
+{% endblock %}

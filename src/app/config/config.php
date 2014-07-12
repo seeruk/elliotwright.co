@@ -17,7 +17,12 @@ return [
             'username' => 'tifa',
             'password' => '',
             'port' => '3306',
-            'database' => 'Test'
+            'database' => 'elliotwright'
+        ]
+    ],
+    'security' => [
+        'forms' => [
+            'csrf_secret' => 'OZBip2b!#l%7bq%0&ZivT@PYPUceZVdo'
         ]
     ],
     'twig' => [

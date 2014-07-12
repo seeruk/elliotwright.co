@@ -25,16 +25,6 @@ class SeerUKBlogModule extends AbstractModule
     /**
      * {@inheritDoc}
      */
-    public function registerRoutes(RouteCollection $collection)
-    {
-        $routes = require 'module/config/routes.hh';
-
-        call_user_func($routes, $collection);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function registerServices(Container $container)
     {
         $services = require 'module/config/services.hh';
