@@ -1,4 +1,4 @@
-<?hh
+<?php
 
 /*
  * This file is part of elliotwright.co
@@ -25,7 +25,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Article
 {
-    const string ERR_NO_ARTICLE = 'No article found with id "%s"';
+    const ERR_NO_ARTICLE = 'No article found with id "%s"';
 
     /**
      * @var int
@@ -34,7 +34,7 @@ class Article
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected int $id;
+    protected $id;
 
     /**
      * @var string
@@ -47,28 +47,28 @@ class Article
      *   maxMessage = "Your title must not exceed {{ limit }} characters."
      * )
      */
-    protected string $title;
+    protected $title;
 
     /**
      * @var string
      *
      * @ORM\Column(name="content", type="string", length=16777215)
      */
-    protected string $content;
+    protected $content;
 
     /**
      * @var DateTime
      *
      * @ORM\Column(name="created", type="datetime")
      */
-    protected DateTime $created;
+    protected $created;
 
     /**
      * @var DateTime
      *
      * @ORM\Column(name="published", type="datetime")
      */
-    protected DateTime $published;
+    protected $published;
 
     /**
      * @var ArrayCollection
@@ -76,14 +76,14 @@ class Article
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="articles")
      * @ORM\JoinTable(name="articles_categories")
      */
-    protected ArrayCollection $categories;
+    protected $categories;
 
     /**
      * Constructor
      *
      * @return void
      */
-    public function __construct(): void
+    public function __construct()
     {
         $this->categories = new ArrayCollection();
     }
@@ -93,7 +93,7 @@ class Article
      *
      * @return integer
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -105,7 +105,7 @@ class Article
      *
      * @return Article
      */
-    public function setTitle(string $title): Article
+    public function setTitle($title)
     {
         $this->title = $title;
 
@@ -117,7 +117,7 @@ class Article
      *
      * @return string
      */
-    public function getTitle(): string
+    public function getTitle()
     {
         return $this->title;
     }
@@ -129,7 +129,7 @@ class Article
      *
      * @return Article
      */
-    public function setContent(string $content): Article
+    public function setContent($content)
     {
         $this->content = $content;
 
@@ -141,7 +141,7 @@ class Article
      *
      * @return string
      */
-    public function getContent(): string
+    public function getContent()
     {
         return $this->content;
     }
@@ -153,7 +153,7 @@ class Article
      *
      * @return Article
      */
-    public function setCreated(\DateTime $created): Article
+    public function setCreated(\DateTime $created)
     {
         $this->created = $created;
 
@@ -165,7 +165,7 @@ class Article
      *
      * @return DateTime
      */
-    public function getCreated(): DateTime
+    public function getCreated()
     {
         return $this->created;
     }
@@ -177,7 +177,7 @@ class Article
      *
      * @return Article
      */
-    public function setPublished(\DateTime $published): Article
+    public function setPublished(\DateTime $published)
     {
         $this->published = $published;
 
@@ -189,17 +189,17 @@ class Article
      *
      * @return DateTime
      */
-    public function getPublished(): DateTime
+    public function getPublished()
     {
         return $this->published;
     }
 
-    public function getRelativePublished(): string
+    public function getRelativePublished()
     {
         return '3 days ago';
     }
 
-    public function addCategory(Category $category): Article
+    public function addCategory(Category $category)
     {
         $this->categories[] = $category;
 
@@ -211,7 +211,7 @@ class Article
      *
      * @return Collection
      */
-    public function getCategories(): Collection
+    public function getCategories()
     {
         return $this->categories;
     }

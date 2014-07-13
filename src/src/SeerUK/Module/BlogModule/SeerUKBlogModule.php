@@ -1,4 +1,4 @@
-<?hh
+<?php
 
 /*
  * This file is part of elliotwright.co
@@ -9,25 +9,25 @@
  * file that was distributed with this source code.
  */
 
-namespace SeerUK\Module\SecurityModule;
+namespace SeerUK\Module\BlogModule;
 
 use Phimple\Container;
 use Symfony\Component\Routing\RouteCollection;
 use Trident\Component\HttpKernel\Module\AbstractModule;
 
 /**
- * SeerUK Security Bundle
+ * SeerUK Blog Bundle
  *
  * @author Elliot Wright <elliot@elliotwright.co>
  */
-class SeerUKSecurityModule extends AbstractModule
+class SeerUKBlogModule extends AbstractModule
 {
     /**
      * {@inheritDoc}
      */
     public function registerServices(Container $container)
     {
-        $services = require 'module/config/services.hh';
+        $services = require 'module/config/services.php';
 
         call_user_func($services, $container);
     }
@@ -37,7 +37,7 @@ class SeerUKSecurityModule extends AbstractModule
      */
     public function registerServiceExtensions(Container $container)
     {
-        $extensions = require 'module/config/service_extensions.hh';
+        $extensions = require 'module/config/service_extensions.php';
 
         call_user_func($extensions, $container);
     }

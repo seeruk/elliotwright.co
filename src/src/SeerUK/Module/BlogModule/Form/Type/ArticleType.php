@@ -1,4 +1,4 @@
-<?hh
+<?php
 
 /*
  * This file is part of elliotwright.co
@@ -24,7 +24,7 @@ class ArticleType extends AbstractType
     /**
      * {@inheritDoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('title', 'text')
@@ -34,7 +34,7 @@ class ArticleType extends AbstractType
     /**
      * {@inheritDoc}
      */
-    public function getName(): string
+    public function getName()
     {
         return 'article';
     }

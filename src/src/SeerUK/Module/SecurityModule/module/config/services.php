@@ -1,4 +1,4 @@
-<?hh
+<?php
 
 use SeerUK\Module\SecurityModule\Data\Entity\User;
 use SeerUK\Module\SecurityModule\Authentication\Authenticator\UserAuthenticator;

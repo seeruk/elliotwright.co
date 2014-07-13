@@ -1,4 +1,4 @@
-<?hh
+<?php
 
 /*
  * This file is part of elliotwright.co
@@ -66,7 +66,7 @@ class User implements UserInterface
      *
      * @return integer
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -78,7 +78,7 @@ class User implements UserInterface
      *
      * @return User
      */
-    public function setUsername(string $username): User
+    public function setUsername($username)
     {
         $this->username = $username;
 
@@ -88,7 +88,7 @@ class User implements UserInterface
     /**
      * {@inheritDoc}
      */
-    public function getUsername(): string
+    public function getUsername()
     {
         return $this->username;
     }
@@ -100,7 +100,7 @@ class User implements UserInterface
      *
      * @return User
      */
-    public function setPassword(string $password): User
+    public function setPassword($password)
     {
         $this->password = $password;
 
@@ -112,7 +112,7 @@ class User implements UserInterface
      *
      * @return string
      */
-    public function getPassword(): string
+    public function getPassword()
     {
         return $this->password;
     }
@@ -124,7 +124,7 @@ class User implements UserInterface
      *
      * @return User
      */
-    public function setEmail(string $email): User
+    public function setEmail($email)
     {
         $this->email = $email;
 
@@ -136,7 +136,7 @@ class User implements UserInterface
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail()
     {
         return $this->email;
     }
@@ -144,7 +144,7 @@ class User implements UserInterface
     /**
      * {@inheritDoc}
      */
-    public function getRoles(): array
+    public function getRoles()
     {
         return ['ROLE_USER', 'ROLE_EDITOR', 'ROLE_ADMIN'];
     }

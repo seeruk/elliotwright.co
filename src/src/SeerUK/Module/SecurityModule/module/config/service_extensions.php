@@ -1,4 +1,4 @@
-<?hh
+<?php
 
 return function($container) {
     // Extensions

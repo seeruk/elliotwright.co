@@ -1,4 +1,4 @@
-<?hh
+<?php
 
 /*
  * This file is part of elliotwright.co
@@ -15,6 +15,7 @@ use Aegis\Authentication\Authenticator\AuthenticatorInterface;
 use Aegis\Exception\AuthenticationException;
 use Aegis\Token\TokenInterface;
 use Doctrine\ORM\EntityRepository;
+use SeerUK\Module\SecurityModule\Authentication\Validator\UserValidator;
 use SeerUK\Module\SecurityModule\Data\Entity\User;
 use SeerUK\Module\SecurityModule\Token\UserToken;
 
@@ -25,7 +26,7 @@ use SeerUK\Module\SecurityModule\Token\UserToken;
  */
 class UserAuthenticator implements AuthenticatorInterface
 {
-    private EntityRepository $repository;
+    private $repository;
 
     /**
      * Constructor.
@@ -46,15 +47,13 @@ class UserAuthenticator implements AuthenticatorInterface
             throw new \RuntimeException('No repository found to fetch user from.');
         }
 
-        $credentials = $token->getCredentials();
+        $user = $this->repository->findOneByUsername($token->getCredentials()['username']);
 
-        $user = $this->repository->findOneByUsername($credentials['username']);
+        $validator = new UserValidator();
 
-        if ( ! $user) {
+        if ( ! $user || ! $validator->validate($token, $user)) {
             throw new AuthenticationException($token, 'Bad credentials.');
         }
-
-        // Validate the user
 
         $token->setUser($user);
         $token->setAuthenticated(count($user->getRoles() > 0));

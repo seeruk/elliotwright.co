@@ -1,10 +1,9 @@
-<?hh
+<?php
 
 use Aptoma\Twig\Extension\MarkdownEngine\MichelfMarkdownEngine;
 use Aptoma\Twig\Extension\MarkdownExtension;
 use SeerUK\Module\BlogModule\Data\Entity\Article;
 use Trident\Component\Templating\Engine\TwigEngine;
-use Twig_Loader_String;
 
 return function($container) {
     // Services
@@ -13,7 +12,7 @@ return function($container) {
     });
 
     $container->set('bm.templating.twig.loader.string', function($c) {
-        return new Twig_Loader_String();
+        return new \Twig_Loader_String();
     });
 
     $container->set('bm.templating.twig.environment.string', function($c) {

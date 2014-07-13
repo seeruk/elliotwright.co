@@ -1,4 +1,4 @@
-<?hh
+<?php
 
 /*
  * This file is part of elliotwright.co
@@ -23,7 +23,7 @@ use Trident\Module\FrameworkModule\Controller\Controller;
  */
 class AuthenticationController extends Controller
 {
-    public function loginAction(): Response
+    public function loginAction()
     {
         $ff = $this->get('form.factory');
         $ss = $this->get('security');
@@ -36,8 +36,13 @@ class AuthenticationController extends Controller
 
             $result = $ss->authenticate($token);
 
-            ldd($result);
+            // Do something with result (i.e. if status isn't 1)
+
+            return $this->redirect($this->generateUrl('bm_blog_view', [
+                'id' => 1
+            ]));
         }
+
 
         return $this->render('SeerUKSecurityModule:Authentication:login.html.twig', [
             'form' => $form->createView(),

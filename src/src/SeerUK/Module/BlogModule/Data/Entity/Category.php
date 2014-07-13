@@ -1,4 +1,4 @@
-<?hh
+<?php
 
 /*
  * This file is part of elliotwright.co
@@ -31,21 +31,21 @@ class Category
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected int $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=50)
      */
-    protected string $name;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=250)
      */
-    protected string $description;
+    protected $description;
 
     /**
      * @var ArrayCollection
@@ -53,14 +53,14 @@ class Category
      * @ORM\ManyToMany(targetEntity="Article", inversedBy="categories")
      * @ORM\JoinTable(name="articles_categories")
      */
-    protected ArrayCollection $articles;
+    protected $articles;
 
     /**
      * Constructor
      *
      * @return void
      */
-    public function __construct(): void
+    public function __construct()
     {
         $this->articles = new ArrayCollection();
     }
@@ -70,7 +70,7 @@ class Category
      *
      * @return integer
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -82,7 +82,7 @@ class Category
      *
      * @return Category
      */
-    public function setName(string $name): Category
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -94,7 +94,7 @@ class Category
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -106,7 +106,7 @@ class Category
      *
      * @return Category
      */
-    public function setDescription(string $description): Category
+    public function setDescription($description)
     {
         $this->description = $description;
 
@@ -118,7 +118,7 @@ class Category
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }

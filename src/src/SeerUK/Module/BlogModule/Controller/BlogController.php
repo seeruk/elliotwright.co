@@ -1,4 +1,4 @@
-<?hh
+<?php
 
 /*
  * This file is part of elliotwright.co
@@ -33,7 +33,7 @@ class BlogController extends Controller
      *
      * @return Response
      */
-    public function viewAction($id): Response
+    public function viewAction($id)
     {
         return $this->get('caching.proxy')->proxy("rendered.blog.article.$id",
             function() use ($id) {
@@ -64,7 +64,7 @@ class BlogController extends Controller
      *
      * @return Response
      */
-    public function editAction($id): Response
+    public function editAction($id)
     {
         $ar = $this->get('bm.repository.article');
         $em = $this->get('doctrine.orm.entity_manager');
