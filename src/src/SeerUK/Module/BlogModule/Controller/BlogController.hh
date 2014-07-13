@@ -26,8 +26,6 @@ use Trident\Module\FrameworkModule\Controller\Controller;
  */
 class BlogController extends Controller
 {
-    const string ERR_NO_ARTICLE = 'No article found with id "%s"';
-
     /**
      * View a blog article
      *
@@ -40,13 +38,17 @@ class BlogController extends Controller
         return $this->get('caching.proxy')->proxy("rendered.blog.article.$id",
             function() use ($id) {
                 $twig = $this->get('bm.templating.engine.twig.string');
+                $ar   = $this->get('bm.repository.article');
 
-                $repo    = $this->get('doctrine.orm.entity_manager')->getRepository(Article::class);
-                $article = $repo->findOneById($id);
+                $article = $ar->findOneById($id);
 
                 if ( ! $article) {
-                    throw new NotFoundHttpException(sprintf(self::ERR_NO_ARTICLE, $id));
+                    throw new NotFoundHttpException(sprintf(Article::ERR_NO_ARTICLE, $id));
                 }
+
+                // Render the content and set it inside the article for view
+                $rendered = $twig->render('{% markdown %}'.$article->getContent().'{% endmarkdown %}');
+                $article->setContent($rendered);
 
                 return $this->render('SeerUKBlogModule:Blog:view.html.twig', [
                     'article' => $article
@@ -64,23 +66,27 @@ class BlogController extends Controller
      */
     public function editAction($id): Response
     {
-        // Fetch dependencies
-        $em   = $this->get('doctrine.orm.entity_manager');
-        $repo = $em->getRepository(Article::class);
+        $ar = $this->get('bm.repository.article');
+        $em = $this->get('doctrine.orm.entity_manager');
+        $ff = $this->get('form.factory');
 
-        // If the article doesn't exist, 404
-        if ( ! $article = $repo->findOneById($id)) {
-            throw new NotFoundHttpException(sprintf(self::ERR_NO_ARTICLE, $id));
+        $article = $ar->findOneById($id);
+
+        if ( ! $article) {
+            throw new NotFoundHttpException(sprintf(Article::ERR_NO_ARTICLE, $id));
         }
 
-        $form = $this->get('form.factory')->create(new ArticleType, $article);
+        $form = $ff->create(new ArticleType, $article);
         $form->handleRequest($this->get('request'));
 
         if ($form->isValid()) {
+            $caching = $this->get('caching');
             $article = $form->getData();
 
             $em->persist($article);
             $em->flush();
+
+            $caching->remove("rendered.blog.article.$id");
 
             return $this->redirect($this->generateUrl('bm_blog_view', [
                 'id' => $article->getId()

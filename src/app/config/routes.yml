@@ -1,3 +1,7 @@
 seeruk_blog:
     resource: "../../src/SeerUK/Module/BlogModule/module/config/routes.yml"
     prefix: /
+
+seeruk_security:
+    resource: "../../src/SeerUK/Module/SecurityModule/module/config/routes.yml"
+    prefix: /

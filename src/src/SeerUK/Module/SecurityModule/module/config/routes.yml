@@ -1,0 +1,5 @@
+sm_authentication_login:
+    path: /signin
+    defaults: { _controller: SeerUK\Module\SecurityModule\Controller\AuthenticationController::loginAction }
+    requirements:
+        id: \d+

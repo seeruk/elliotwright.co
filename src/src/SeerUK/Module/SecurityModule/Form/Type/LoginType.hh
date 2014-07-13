@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SeerUK\Module\BlogModule\Form\Type;
+namespace SeerUK\Module\SecurityModule\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,7 +19,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  *
  * @author Elliot Wright <elliot@elliotwright.co>
  */
-class ArticleType extends AbstractType
+class LoginType extends AbstractType
 {
     /**
      * {@inheritDoc}
@@ -27,8 +27,8 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title', 'text')
-            ->add('content', 'textarea');
+            ->add('username', 'text')
+            ->add('password', 'password');
     }
 
     /**
@@ -36,6 +36,6 @@ class ArticleType extends AbstractType
      */
     public function getName(): string
     {
-        return 'article';
+        return 'login';
     }
 }

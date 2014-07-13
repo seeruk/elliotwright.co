@@ -1,0 +1,27 @@
+{% extends '::master.html.twig' %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block body %}
+    <article>
+        {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            <div class="form-row">
+                {{ form_label(form.username) }}
+                {{ form_widget(form.username, {'attr': {'class': 'input-block'}}) }}
+                {{ form_errors(form.username) }}
+            </div>
+
+            <div class="form-row">
+                {{ form_label(form.password) }}
+                {{ form_widget(form.password, {'attr': {'class': 'input-block'}}) }}
+                {{ form_errors(form.password) }}
+            </div>
+
+            <div class="form-row form-center">
+                <input class="btn btn-success" type="submit" value="Sign In" />
+            </div>
+        {{ form_end(form) }}
+    </article>
+{% endblock %}

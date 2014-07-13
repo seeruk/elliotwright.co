@@ -7,12 +7,21 @@
     <link href="{{ asset('assets/tridentframeworkmodule/fonts/inconsolata/inconsolata.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/tridentframeworkmodule/fonts/lato/lato.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/seerukblogmodule/css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/seerukblogmodule/css/prism.css') }}" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <header class="navbar">
         <div class="brand">{{ config.get('app.site_name') }}</div>
     </header>
+
     {% block body %}{% endblock %}
+
+    <footer>
+        <div class="copyright">&copy; Elliot Wright</div>
+    </footer>
+
+    <script src="{{ asset('assets/seerukblogmodule/js/prism.js') }}" type="text/javascript"></script>
+
     {% block javascript %}{% endblock %}
 </body>
 </html>

@@ -9,20 +9,38 @@
 
             <div class="form-row">
                 {{ form_label(form.title) }}
-                {{ form_widget(form.title, {'attr': {'class': 'input-block'}}) }}<br />
+                {{ form_widget(form.title, {'attr': {'class': 'input-block'}}) }}
                 {{ form_errors(form.title) }}
             </div>
 
             <div class="form-row">
                 {{ form_label(form.content) }}
-                {{ form_widget(form.content, {'attr': {'class': 'input-block input-mono'}}) }}<br />
+                {{ form_widget(form.content, {'attr': {'class': 'input-block input-mono'}}) }}
                 {{ form_errors(form.content) }}
             </div>
 
-            <div class="form-row">
+            <div class="form-row form-center">
                 <input class="btn" type="submit" value="Save" />
                 <a class="btn btn-bordered" href="">Cancel</a>
             </div>
         {{ form_end(form) }}
     </article>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        // Allow tab in textareas
+        var textareas = document.getElementsByTagName('textarea');
+        var count = textareas.length;
+        for(i=0;i<count;i++){
+            textareas[i].onkeydown = function(e){
+                if(e.keyCode==9 || event.which==9){
+                    e.preventDefault();
+                    var s = this.selectionStart;
+                    this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+                    this.selectionEnd = s+1;
+                }
+            }
+        }
+    </script>
 {% endblock %}

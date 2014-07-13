@@ -25,6 +25,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Article
 {
+    const string ERR_NO_ARTICLE = 'No article found with id "%s"';
+
     /**
      * @var int
      *

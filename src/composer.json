@@ -8,8 +8,11 @@
     },
     "require": {
         "php": ">=5.5.3",
+        "aptoma/twig-markdown": "0.2.1",
+        "easybook/geshi": "dev-master",
+        "michelf/php-markdown": "1.4.1",
         "raulfraile/ladybug": "v1.0.8",
-        "strident/trident": "1.0.5-alpha2",
+        "strident/trident": "1.0.5-alpha3",
         "symfony/yaml": "2.5.*"
     },
     "config": {
