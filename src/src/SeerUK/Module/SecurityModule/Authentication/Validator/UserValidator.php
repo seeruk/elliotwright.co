@@ -25,6 +25,8 @@ class UserValidator
     {
         $password = $token->getCredentials()['password'];
 
+        // This slows down each request significantly - investigate methods
+        // of caching this while ensuring security is kept.
         return password_verify($password, $user->getPassword());
     }
 }

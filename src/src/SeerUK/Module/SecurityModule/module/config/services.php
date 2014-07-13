@@ -8,6 +8,6 @@ return function($container) {
     $container->set('sm.authenticator.user', function($c) {
         $em = $c->get('doctrine.orm.entity_manager');
 
-        return new UserAuthenticator($em->getRepository(User::class));
+        return new UserAuthenticator($c->get('caching'), $em->getRepository(User::class));
     });
 };

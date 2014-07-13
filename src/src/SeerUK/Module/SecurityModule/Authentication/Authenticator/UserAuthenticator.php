@@ -18,6 +18,7 @@ use Doctrine\ORM\EntityRepository;
 use SeerUK\Module\SecurityModule\Authentication\Validator\UserValidator;
 use SeerUK\Module\SecurityModule\Data\Entity\User;
 use SeerUK\Module\SecurityModule\Token\UserToken;
+use Trident\Component\Caching\Caching;
 
 /**
  * User Authenticator
@@ -26,6 +27,7 @@ use SeerUK\Module\SecurityModule\Token\UserToken;
  */
 class UserAuthenticator implements AuthenticatorInterface
 {
+    private $caching;
     private $repository;
 
     /**
@@ -33,8 +35,9 @@ class UserAuthenticator implements AuthenticatorInterface
      *
      * @param EntityRepository $repository
      */
-    public function __construct(EntityRepository $repository)
+    public function __construct(Caching $caching, EntityRepository $repository)
     {
+        $this->caching = $caching;
         $this->repository = $repository;
     }
 
@@ -47,7 +50,13 @@ class UserAuthenticator implements AuthenticatorInterface
             throw new \RuntimeException('No repository found to fetch user from.');
         }
 
-        $user = $this->repository->findOneByUsername($token->getCredentials()['username']);
+        $username = $token->getCredentials()['username'];
+
+        if ( ! $user = $this->caching->get("sm.authenticator.user.$username")) {
+            $user = $this->repository->findOneByUsername($username);
+
+            $this->caching->set("sm.authenticator.user.$username", $user, 120);
+        }
 
         $validator = new UserValidator();
 
