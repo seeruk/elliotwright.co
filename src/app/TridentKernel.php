@@ -9,6 +9,7 @@
  * file that was distributed with this source code.
  */
 
+use Symfony\Component\HttpFoundation\Session\Session;
 use Trident\Component\HttpKernel\AbstractKernel;
 
 /**
@@ -60,5 +61,27 @@ class TridentKernel extends AbstractKernel
     public function getAssetDir()
     {
         return $this->getRootDir().'/../public/assets';
+    }
+
+    /**
+     * Override for HHVM support by using memcached
+     *
+     * {@inheritDoc}
+     */
+    protected function initialiseSession()
+    {
+        $memcached = new \Memcached();
+        $memcached->addServer('localhost', 11211);
+
+        $handler = new \Symfony\Component\HttpFoundation\Session\Storage\Handler\MemcachedSessionHandler($memcached);
+        $storage = new \Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage([], $handler);
+
+        $session = $this->session ?: new Session($storage);
+
+        if ( ! $session->isStarted()) {
+            $session->start();
+        }
+
+        return $this->session = $session;
     }
 }
