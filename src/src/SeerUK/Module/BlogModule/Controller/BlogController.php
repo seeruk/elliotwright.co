@@ -14,6 +14,7 @@ namespace SeerUK\Module\BlogModule\Controller;
 use SeerUK\Module\BlogModule\Data\Entity\Article;
 use SeerUK\Module\BlogModule\Form\Type\ArticleType;
 use Symfony\Component\HttpFoundation\Response;
+use Trident\Component\HttpKernel\Exception\ForbiddenHttpException;
 use Trident\Component\HttpKernel\Exception\NotFoundHttpException;
 use Trident\Module\FrameworkModule\Controller\Controller;
 
@@ -66,6 +67,11 @@ class BlogController extends Controller
      */
     public function editAction($id)
     {
+        if ( ! $this->get('security')->isGranted('ROLE_ADMIN')) {
+            // Could redirect to login page
+            throw new ForbiddenHttpException('You do not have permission to access this resource.');
+        }
+
         $ar = $this->get('bm.repository.article');
         $em = $this->get('doctrine.orm.entity_manager');
         $ff = $this->get('form.factory');
@@ -94,7 +100,8 @@ class BlogController extends Controller
         }
 
         return $this->render('SeerUKBlogModule:Blog:edit.html.twig', [
-            'form' => $form->createView(),
+            'form'    => $form->createView(),
+            'article' => $article
         ]);
     }
 }

@@ -29,16 +29,18 @@ class UserAuthenticator implements AuthenticatorInterface
 {
     private $caching;
     private $repository;
+    private $validator;
 
     /**
      * Constructor.
      *
      * @param EntityRepository $repository
      */
-    public function __construct(Caching $caching, EntityRepository $repository)
+    public function __construct(Caching $caching, EntityRepository $repository, UserValidator $validator)
     {
         $this->caching = $caching;
         $this->repository = $repository;
+        $this->validator = $validator;
     }
 
     /**
@@ -51,16 +53,15 @@ class UserAuthenticator implements AuthenticatorInterface
         }
 
         $username = $token->getCredentials()['username'];
+        $key = "sm.authenticator.user.fetch.$username";
 
-        if ( ! $user = $this->caching->get("sm.authenticator.user.$username")) {
+        if ( ! $user = $this->caching->get($key)) {
             $user = $this->repository->findOneByUsername($username);
 
-            $this->caching->set("sm.authenticator.user.$username", $user, 120);
+            $this->caching->set($key, $user, 120);
         }
 
-        $validator = new UserValidator();
-
-        if ( ! $user || ! $validator->validate($token, $user)) {
+        if ( ! $user || ! $this->validator->validate($token, $user)) {
             throw new AuthenticationException($token, 'Bad credentials.');
         }
 

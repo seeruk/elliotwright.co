@@ -25,6 +25,10 @@ class AuthenticationController extends Controller
 {
     public function loginAction()
     {
+        if ($this->get('security')->isAuthenticated()) {
+            // Redirect to admin homepage when it's created
+        }
+
         $ff = $this->get('form.factory');
         $ss = $this->get('security');
 
