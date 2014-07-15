@@ -1,5 +1,7 @@
 /app/cache/*
-/bin/
+/bin/*
+!bin/console
+!bin/migrations.yml
 /build/
 /public/*
 !public/index.php
