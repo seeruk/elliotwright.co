@@ -1,32 +1,33 @@
-{% extends '::master.html.twig' %}
+{% extends 'SeerUKAdminModule:Admin:master.html.twig' %}
 
 {% block title %}Editing '{{ article.title }}'{% endblock %}
 
 {% block body %}
-    <article>
-        <p>Hey {{ app.user.username }}.</p>
+    <h1 class="title">
+        Editing Article<br />
+        <small>Written by <strong class="text-info">Elliot</strong> on <strong class="text-info">{{ article.created|date('jS F Y, h:ia') }}</strong>.</small>
+    </h1>
 
-        {{ form_start(form) }}
-            {{ form_errors(form) }}
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
 
-            <div class="form-row">
-                {{ form_label(form.title) }}
-                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
-                {{ form_errors(form.title) }}
-            </div>
+        <div class="form-row">
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            <div class="errors">{{ form_errors(form.title) }}</div>
+        </div>
 
-            <div class="form-row">
-                {{ form_label(form.content) }}
-                {{ form_widget(form.content, {'attr': {'class': 'form-control mono'}}) }}
-                {{ form_errors(form.content) }}
-            </div>
+        <div class="form-row">
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content, {'attr': {'class': 'form-control mono'}}) }}
+            <div class="errors">{{ form_errors(form.content) }}</div>
+        </div>
 
-            <div class="form-row text-center">
-                <input class="btn btn-success" type="submit" value="Save" />
-                <a class="btn btn-bordered" href="{{ url('bm_blog_view', {'id': article.id}) }}">Cancel</a>
-            </div>
-        {{ form_end(form) }}
-    </article>
+        <div class="form-row text-center">
+            <input class="btn btn-success" type="submit" value="Save" />
+            <a class="btn btn-bordered" href="{{ url('bm_blog_view', {'id': article.id}) }}">Cancel</a>
+        </div>
+    {{ form_end(form) }}
 {% endblock %}
 
 {% block javascript %}

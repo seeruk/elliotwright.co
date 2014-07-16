@@ -12,11 +12,20 @@
  */
 
 // Base
+form {
+    .errors {
+        @extend .text-danger;
+
+        font-size: $font-size-base * 0.8;
+    }
+}
+
+// Controls
 .form-control {
-    @include border-radius(4px);
     @include transition(border-color 0.2s ease);
 
     border: 2px solid $smokeLight;
+    border-radius: 4px;
     display: block;
     font-size: $font-size-base * 0.8;
     min-width: 100%;

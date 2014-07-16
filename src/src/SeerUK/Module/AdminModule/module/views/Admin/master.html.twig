@@ -2,18 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}{% if block('title') %} &middot; {% endif %}{{ config.get('app.site_name') }}</title>
+    <title>{% block title %}{% endblock %}{% if block('title') %} &middot; {% endif %}{{ config.get('app.site_name') }} Admin</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/tridentframeworkmodule/fonts/inconsolata/inconsolata.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/tridentframeworkmodule/fonts/lato/lato.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/seerukadminmodule/css/admin.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/core/css/style.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/core/css/prism.css') }}" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <header class="navbar">
-        <div class="brand">{{ config.get('app.site_name') }}</div>
-    </header>
-
-    {% block body %}{% endblock %}
+    <section class="admin">
+        <aside>
+            <div class="brand text-center">
+                <img src="{{ asset('assets/seerukadminmodule/images/trident.png') }}" />
+                {# {{ config.get('app.site_name') }} #}
+            </div>
+            <button class="btn btn-block btn-success">Create</button>
+            <nav>
+                <ul>
+                    <li>Articles</li>
+                    <li>Categories</li>
+                    <li>Account</li>
+                    <li>Settings</li>
+                </ul>
+            </nav>
+            <button class="btn btn-block">Sign Out</button>
+        </aside>
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+    </section>
 
     <footer>
         <div class="copyright">&copy; Elliot Wright</div>
@@ -22,5 +39,11 @@
     <script src="{{ asset('assets/core/js/prism.js') }}" type="text/javascript"></script>
 
     {% block javascript %}{% endblock %}
+
+{#
+    <header class="navbar">
+        <div class="brand">{{ config.get('app.site_name') }}</div>
+    </header>
+#}
 </body>
 </html>

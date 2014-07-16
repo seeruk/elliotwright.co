@@ -44,7 +44,13 @@ blockquote * {
 .text-left { text-align: left; }
 .text-right { text-align: right; }
 
+.text-info { color: $text-info; }
+.text-success { color: $text-success; }
+.text-warning { color: $text-warning; }
+.text-danger { color: $text-danger; }
+
 // Headers
+.title,
 .jumbo-title {
     color: $charDark;
     font-size: $font-size-base * 3;
@@ -53,12 +59,21 @@ blockquote * {
     margin-bottom: 1em;
     margin-top: 0.67em;
 
+    img {
+        vertical-align: middle;
+    }
+
     small {
         color: $text-muted;
         display: block;
         font-weight: $font-weight-normal;
         font-size: $font-size-base * 0.8;
     }
+}
+
+.title {
+    font-size: $font-size-base * 2.5;
+    margin: 0.8em 0;
 }
 
 h1,

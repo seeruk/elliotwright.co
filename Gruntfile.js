@@ -4,38 +4,25 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         dirs: {
-            adminCss: 'src/src/SeerUK/Module/AdminModule/module/public/css/',
-            blogCss: 'src/src/SeerUK/Module/BlogModule/module/public/css/',
-            adminSass: 'src/app/sass/admin/',
-            blogSass: 'src/app/sass/blog/',
-            coreSass: 'src/app/sass/'
+            css: 'src/app/public/css',
+            sass: 'src/app/sass'
         },
-        compass: {
-            admin: {
+        sass: {
+            dist: {
                 options: {
-                    sassDir: '<%= dirs.adminSass %>',
-                    cssDir: '<%= dirs.adminCss %>',
-                    specify: '<%= dirs.adminSass %>/*.scss',
-                    outputStyle: 'compressed'
-                }
-            },
-            blog: {
-                options: {
-                    sassDir: '<%= dirs.blogSass %>',
-                    cssDir: '<%= dirs.blogCss %>',
-                    specify: '<%= dirs.blogSass %>/*.scss',
-                    outputStyle: 'compressed'
+                    style: 'compressed'
+                },
+                files: {
+                    '<%= dirs.css %>/style.css': '<%= dirs.sass %>/style.scss'
                 }
             }
         },
         watch: {
             css: {
                 files: [
-                    '<%= dirs.adminSass %>/*.scss',
-                    '<%= dirs.blogSass %>/*.scss',
-                    '<%= dirs.coreSass %>/*.scss',
-                    '<%= dirs.coreSass %>/modules/*.scss',
-                    '<%= dirs.coreSass %>/partials/*.scss',
+                    '<%= dirs.sass %>/*.scss',
+                    '<%= dirs.sass %>/modules/*.scss',
+                    '<%= dirs.sass %>/partials/*.scss',
                 ],
                 tasks: ['css'],
                 options: {
@@ -45,11 +32,11 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['css']);
-    grunt.registerTask('css', ['compass']);
+    grunt.registerTask('css', ['sass']);
 };
