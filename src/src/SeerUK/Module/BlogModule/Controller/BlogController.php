@@ -68,8 +68,7 @@ class BlogController extends Controller
     public function editAction($id)
     {
         if ( ! $this->get('security')->isGranted('ROLE_ADMIN')) {
-            // Could redirect to login page
-            throw new ForbiddenHttpException('You do not have permission to access this resource.');
+            throw new ForbiddenHttpException('You are not granted access to this area.');
         }
 
         $ar = $this->get('bm.repository.article');

@@ -1,0 +1,21 @@
+{
+  "name": "elliotwright.co",
+  "description": "Personal Blog of Elliot Wright",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SeerUK/elliotwright.co.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Elliot Wright",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SeerUK/elliotwright.co/issues"
+  },
+  "homepage": "https://github.com/SeerUK/elliotwright.co",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-uglify": "~0.5.0"
+  }
+}

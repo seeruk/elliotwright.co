@@ -1,5 +1,7 @@
 sm_authentication_login:
-    path: /signin
+    path: /account/login
     defaults: { _controller: SeerUK\Module\SecurityModule\Controller\AuthenticationController::loginAction }
-    requirements:
-        id: \d+
+
+sm_authentication_logout:
+    path: /account/logout
+    defaults: { _controller: SeerUK\Module\SecurityModule\Controller\AuthenticationController::logoutAction }

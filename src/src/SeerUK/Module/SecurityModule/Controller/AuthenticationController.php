@@ -43,9 +43,17 @@ class AuthenticationController extends Controller
             // Do something with result (i.e. if status isn't 1)
 
             if ($result->getCode()) {
-                return $this->redirect($this->generateUrl('bm_blog_view', [
-                    'id' => 1
-                ]));
+                $request = $this->get('request');
+
+                if ($request->query->has('referer')) {
+                    $redirect = $request->query->get('referer');
+                } else {
+                    $redirect = $this->generateUrl('bm_blog_view', [
+                        'id' => 1
+                    ]);
+                }
+
+                return $this->redirect($redirect);
             }
         }
 

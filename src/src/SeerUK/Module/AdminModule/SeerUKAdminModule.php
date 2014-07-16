@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace SeerUK\Module\BlogModule;
+namespace SeerUK\Module\AdminModule;
 
 use Phimple\Container;
 use Trident\Component\HttpKernel\Module\AbstractModule;
 
 /**
- * SeerUK Blog Bundle
+ * SeerUK Admin Module
  *
  * @author Elliot Wright <elliot@elliotwright.co>
  */
-class SeerUKBlogModule extends AbstractModule
+class SeerUKAdminModule extends AbstractModule
 {
     /**
      * {@inheritDoc}

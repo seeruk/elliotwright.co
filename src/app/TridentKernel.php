@@ -33,6 +33,7 @@ class TridentKernel extends AbstractKernel
             new Trident\Module\TemplatingModule\TridentTemplatingModule(),
             new Trident\Module\DoctrineModule\TridentDoctrineModule(),
             new Trident\Module\SecurityModule\TridentSecurityModule(),
+            new SeerUK\Module\AdminModule\SeerUKAdminModule(),
             new SeerUK\Module\BlogModule\SeerUKBlogModule(),
             new SeerUK\Module\SecurityModule\SeerUKSecurityModule(),
         ];

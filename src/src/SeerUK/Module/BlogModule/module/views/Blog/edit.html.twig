@@ -23,7 +23,7 @@
 
             <div class="form-row form-center">
                 <input class="btn" type="submit" value="Save" />
-                <a class="btn btn-bordered" href="{{ url('') }}">Cancel</a>
+                <a class="btn btn-bordered" href="{{ url('bm_blog_view', {'id': article.id}) }}">Cancel</a>
             </div>
         {{ form_end(form) }}
     </article>
