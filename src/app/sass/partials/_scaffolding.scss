@@ -11,29 +11,14 @@
  * Scaffolding
  */
 
-// Helpers
-.centered {
-    margin: 0 auto;
-    width: $content-width;
-}
-
 // Generic
 .navbar {
     @extend .centered;
+    @extend .clearfix;
 
     &.navbar-fluid {
         display: block;
         width: 100%;
-    }
-
-    &:before,
-    &:after {
-        content: "";
-        display: table;
-    }
-
-    &:after {
-        clear: both;
     }
 
     .brand {

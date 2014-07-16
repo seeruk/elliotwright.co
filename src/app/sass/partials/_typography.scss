@@ -17,9 +17,26 @@ body {
     font: $font-base;
 }
 
+hr {
+    border: 0;
+    background: $white;
+    height: 2px;
+}
+
 p,
 pre {
     margin: $font-size-base 0;
+}
+
+blockquote {
+    border-left: 2px solid $white;
+    font-style: italic;
+    margin: 1em 0;
+    padding: 10px 40px;
+}
+
+blockquote * {
+    margin: 0;
 }
 
 // Support
@@ -29,12 +46,12 @@ pre {
 
 // Headers
 .jumbo-title {
-    color: $greyDarker;
+    color: $charDark;
     font-size: $font-size-base * 3;
     font-weight: $font-weight-light;
-    line-height: ($font-size-base * 3) * 1.2;
-    margin-bottom: $font-size-base * 3;
-    margin-top: ($font-size-base * 3) * 0.67;
+    line-height: 1.2em;
+    margin-bottom: 1em;
+    margin-top: 0.67em;
 
     small {
         color: $text-muted;
@@ -42,6 +59,42 @@ pre {
         font-weight: $font-weight-normal;
         font-size: $font-size-base * 0.8;
     }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $cyan;
+    font-weight: $font-weight-light;
+    line-height: 1.2em;
+    margin: 0.6em 0;
+}
+
+h1 {
+    font-size: $font-size-base * 2;
+}
+
+h2 {
+    font-size: $font-size-base * 1.5;
+}
+
+h3 {
+    font-size: $font-size-base * 1.25;
+}
+
+h4 {
+    font-size: $font-size-base * 1.125;
+}
+
+h5 {
+    font-size: $font-size-base;
+}
+
+h6 {
+    font-size: $font-size-base * 0.8;
 }
 
 // Footer
@@ -52,4 +105,9 @@ pre {
     color: $text-muted;
     font-size: $font-size-base * 0.8;
     padding: 50px 0;
+}
+
+// Monospaced
+.mono {
+    font: $font-mono;
 }

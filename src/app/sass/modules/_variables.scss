@@ -12,13 +12,14 @@
  */
 
 // Shades
-$black:       #2b303b;
-$greyDarker:  #343d46;
-$greyDark:    #4f5b66;
-$grey:        #65737e;
-$greyLight:   #c0c5ce;
-$greyLighter: #dfe1e8;
-$white:       #eff1f5;
+$black:      #2b303b;
+$charDark:   #343d46;
+$char:       #4f5b66;
+$charLight:  #65737e;
+$smokeDark:  #a7adba;
+$smoke:      #c0c5ce;
+$smokeLight: #dfe1e8;
+$white:      #eff1f5;
 
 // Colours
 $red:    #bf616a;
@@ -36,8 +37,8 @@ $font-stack-serif: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-stack-mono:  Inconsolata, monospace;
 $font-stack-base:  $font-stack-serif;
 
-$text-base:    $grey;
-$text-muted:   $greyLight;
+$text-base:    $charLight;
+$text-muted:   $smokeDark;
 $text-primary: $blue;
 $text-success: $green;
 $text-info:    $blue;
@@ -50,8 +51,11 @@ $font-weight-bold:   700;
 
 $font-size-base:   20px;
 $line-height-base: 34px;
+$font-size-mono:   16px;
+$line-height-mono: 20px;
 
 $font-base: #{$font-size-base}/#{$line-height-base} $font-stack-base;
+$font-mono: #{$font-size-mono}/#{$line-height-mono} $font-stack-mono;
 
 
 // Scaffolding

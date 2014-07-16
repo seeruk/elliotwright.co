@@ -11,18 +11,18 @@
 
             <div class="form-row">
                 {{ form_label(form.title) }}
-                {{ form_widget(form.title, {'attr': {'class': 'input-block'}}) }}
+                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
                 {{ form_errors(form.title) }}
             </div>
 
             <div class="form-row">
                 {{ form_label(form.content) }}
-                {{ form_widget(form.content, {'attr': {'class': 'input-block input-mono'}}) }}
+                {{ form_widget(form.content, {'attr': {'class': 'form-control mono'}}) }}
                 {{ form_errors(form.content) }}
             </div>
 
-            <div class="form-row form-center">
-                <input class="btn" type="submit" value="Save" />
+            <div class="form-row text-center">
+                <input class="btn btn-success" type="submit" value="Save" />
                 <a class="btn btn-bordered" href="{{ url('bm_blog_view', {'id': article.id}) }}">Cancel</a>
             </div>
         {{ form_end(form) }}
@@ -46,4 +46,3 @@
         }
     </script>
 {% endblock %}
-

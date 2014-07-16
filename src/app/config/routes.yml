@@ -1,4 +1,4 @@
-seeruk_security:
+seeruk_admin:
     resource: "../../src/SeerUK/Module/AdminModule/module/config/routes.yml"
     prefix: /
 

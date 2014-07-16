@@ -17,12 +17,14 @@
 
 // Compass
 @import "compass";
-@import "compass/reset";
 @import "compass/css3/user-interface";
 
 // Modules
 @import "../modules/variables";
 
 // Partials
+@import "../partials/helpers";
 @import "../partials/scaffolding";
 @import "../partials/typography";
+@import "../partials/forms";
+@import "../partials/buttons";
