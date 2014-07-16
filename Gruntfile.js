@@ -4,16 +4,27 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         dirs: {
-            adminCss: 'src/src/SeerUK/Modules/AdminModule/module/public/css/',
-            blogCss: 'src/src/SeerUK/Modules/BlogModule/module/public/css/',
+            adminCss: 'src/src/SeerUK/Module/AdminModule/module/public/css/',
+            blogCss: 'src/src/SeerUK/Module/BlogModule/module/public/css/',
             adminSass: 'src/app/sass/admin/',
             blogSass: 'src/app/sass/blog/',
-            coreSass: '/src/app/sass/'
+            coreSass: 'src/app/sass/'
         },
         compass: {
-            dist: {
+            admin: {
                 options: {
-                    config: 'config.rb'
+                    sassDir: '<%= dirs.adminSass %>',
+                    cssDir: '<%= dirs.adminCss %>',
+                    specify: '<%= dirs.adminSass %>/*.scss',
+                    outputStyle: 'compressed'
+                }
+            },
+            blog: {
+                options: {
+                    sassDir: '<%= dirs.blogSass %>',
+                    cssDir: '<%= dirs.blogCss %>',
+                    specify: '<%= dirs.blogSass %>/*.scss',
+                    outputStyle: 'compressed'
                 }
             }
         },

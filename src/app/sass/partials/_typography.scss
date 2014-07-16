@@ -1,0 +1,55 @@
+/*
+ * This file is part of elliotwright.co
+ *
+ * (c) Elliot Wright <elliot@elliotwright.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * Typography
+ */
+
+// Base
+body {
+    color: $text-base;
+    font: $font-base;
+}
+
+p,
+pre {
+    margin: $font-size-base 0;
+}
+
+// Support
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+// Headers
+.jumbo-title {
+    color: $greyDarker;
+    font-size: $font-size-base * 3;
+    font-weight: $font-weight-light;
+    line-height: ($font-size-base * 3) * 1.2;
+    margin-bottom: $font-size-base * 3;
+    margin-top: ($font-size-base * 3) * 0.67;
+
+    small {
+        color: $text-muted;
+        display: block;
+        font-weight: $font-weight-normal;
+        font-size: $font-size-base * 0.8;
+    }
+}
+
+// Footer
+.copyright {
+    @extend .centered;
+    @extend .text-center;
+
+    color: $text-muted;
+    font-size: $font-size-base * 0.8;
+    padding: 50px 0;
+}
