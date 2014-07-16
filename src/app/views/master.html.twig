@@ -17,7 +17,7 @@
     {% block body %}{% endblock %}
 
     <footer>
-        <div class="copyright">&copy; Elliot Wright</div>
+        <div class="copyright">&copy; {{ config.get('app.site_name') }}</div>
     </footer>
 
     <script src="{{ asset('assets/core/js/prism.js') }}" type="text/javascript"></script>
