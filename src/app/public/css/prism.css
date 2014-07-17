@@ -130,7 +130,7 @@ pre[class*="language-"] {
 .token.tab:not(:empty):before,
 .token.cr:before,
 .token.lf:before {
-    color: #a7adba;
+    color: transparent;
 }
 
 .token.tab:not(:empty):before {

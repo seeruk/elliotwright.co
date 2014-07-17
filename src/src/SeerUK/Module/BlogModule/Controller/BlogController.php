@@ -48,8 +48,7 @@ class BlogController extends Controller
                 }
 
                 // Render the content and set it inside the article for view
-                $rendered = $twig->render('{% markdown %}'.$article->getContent().'{% endmarkdown %}');
-                $article->setContent($rendered);
+                $article->setContent($twig->render('{% markdown %}'.$article->getContent().'{% endmarkdown %}'));
 
                 return $this->render('SeerUKBlogModule:Blog:view.html.twig', [
                     'article' => $article

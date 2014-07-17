@@ -72,7 +72,10 @@ class TridentKernel extends AbstractKernel
     protected function initialiseSession()
     {
         $memcached = new \Memcached();
-        $memcached->addServer('localhost', 11211);
+        $memcached->addServer(
+            $this->configuration->get('caching.memcached.host'),
+            $this->configuration->get('caching.memcached.port')
+        );
 
         $handler = new \Symfony\Component\HttpFoundation\Session\Storage\Handler\MemcachedSessionHandler($memcached);
         $storage = new \Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage([], $handler);

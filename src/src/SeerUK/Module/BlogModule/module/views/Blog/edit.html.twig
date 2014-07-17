@@ -23,6 +23,10 @@
             <div class="errors">{{ form_errors(form.content) }}</div>
         </div>
 
+        <div class="form-row">
+            <input type="datetime" />
+        </div>
+
         <div class="form-row text-center">
             <input class="btn btn-success" type="submit" value="Save" />
             <a class="btn btn-bordered" href="{{ url('bm_blog_view', {'id': article.id}) }}">Cancel</a>

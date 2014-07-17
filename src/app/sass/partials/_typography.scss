@@ -23,6 +23,15 @@ hr {
     height: 2px;
 }
 
+a {
+    color: $text-muted;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 p,
 pre {
     margin: $font-size-base 0;
