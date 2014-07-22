@@ -8,6 +8,9 @@
         <small>Written by <strong class="text-info">Elliot</strong> on <strong class="text-info">{{ article.created|date('jS F Y, h:ia') }}</strong>.</small>
     </h1>
 
+        <div class="form-row">
+            <input type="date" class="form-control" />
+        </div>
     {{ form_start(form) }}
         {{ form_errors(form) }}
 
@@ -23,9 +26,6 @@
             <div class="errors">{{ form_errors(form.content) }}</div>
         </div>
 
-        <div class="form-row">
-            <input type="datetime" />
-        </div>
 
         <div class="form-row text-center">
             <input class="btn btn-success" type="submit" value="Save" />
