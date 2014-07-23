@@ -52,45 +52,6 @@ section.shaded {
     border-radius: 4px;
 }
 
-// Admin
-section.admin {
-    @include outer-container;
-    @extend .centered;
-
-    main {
-        @include span-columns(12 of 16);
-        @include shift(1);
-    }
-
-    aside {
-        @include span-columns(3 of 16);
-
-        nav {
-            ul {
-                list-style: none;
-                padding: 0 14px;
-
-                li {
-                    font-size: $font-size-base * 0.8;
-                }
-            }
-        }
-    }
-
-    .brand {
-        color: $text-muted;
-        font-weight: $font-weight-light;
-        font-size: $font-size-base;
-        line-height: 1.2em;
-        padding: 30px 0;
-
-        img {
-            height: 100px;
-            width: 100px;
-        }
-    }
-}
-
 // Blog
 article {
     @extend .centered;

@@ -12,6 +12,11 @@
  */
 
 // Base
+html,
+body {
+    min-height: 100%;
+}
+
 body {
     color: $text-base;
     font: $font-base;
@@ -68,6 +73,10 @@ blockquote * {
     margin-bottom: 1em;
     margin-top: 0.67em;
 
+    .admin & {
+        color: $white;
+    }
+
     img {
         vertical-align: middle;
     }
@@ -81,7 +90,7 @@ blockquote * {
 }
 
 .title {
-    font-size: $font-size-base * 2.5;
+    font-size: $font-size-base * 2;
     margin: 0.8em 0;
 }
 

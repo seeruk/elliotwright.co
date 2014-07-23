@@ -37,13 +37,14 @@ $font-stack-serif: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-stack-mono:  Inconsolata, monospace;
 $font-stack-base:  $font-stack-serif;
 
-$text-base:    $charLight;
-$text-muted:   $smokeDark;
-$text-primary: $blue;
-$text-success: $green;
-$text-info:    $blue;
-$text-warning: $orange;
-$text-danger:  $red;
+$text-base:       $charLight;
+$text-admin-base: $smoke;
+$text-muted:      $smokeDark;
+$text-primary:    $blue;
+$text-success:    $green;
+$text-info:       $blue;
+$text-warning:    $orange;
+$text-danger:     $red;
 
 $font-weight-light:  300;
 $font-weight-normal: 400;

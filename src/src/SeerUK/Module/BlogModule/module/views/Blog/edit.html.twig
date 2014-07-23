@@ -3,14 +3,14 @@
 {% block title %}Editing '{{ article.title }}'{% endblock %}
 
 {% block body %}
-    <h1 class="title">
+    <h2 class="title">
         Editing Article<br />
-        <small>Written by <strong class="text-info">Elliot</strong> on <strong class="text-info">{{ article.created|date('jS F Y, h:ia') }}</strong>.</small>
-    </h1>
+    </h2>
 
-        <div class="form-row">
-            <input type="date" class="form-control" />
-        </div>
+    <div class="attributes">
+        <small>Written by <strong class="text-info">Elliot</strong> on <strong class="text-info">{{ article.created|date('jS F Y, h:ia') }}</strong>.</small>
+    </div><br />
+
     {{ form_start(form) }}
         {{ form_errors(form) }}
 
