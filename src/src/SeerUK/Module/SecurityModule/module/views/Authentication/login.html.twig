@@ -5,8 +5,6 @@
 {% block body %}
     <article>
         {{ form_start(form) }}
-            {{ form_errors(form) }}
-
             <div class="form-row">
                 {{ form_label(form.username) }}
                 {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
@@ -17,6 +15,12 @@
                 {{ form_label(form.password) }}
                 {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
                 {{ form_errors(form.password) }}
+            </div>
+
+            <div class="form-row">
+                <div class="alert alert-danger">
+                    {{ form_errors(form) }}
+                </div>
             </div>
 
             <div class="form-row text-center">

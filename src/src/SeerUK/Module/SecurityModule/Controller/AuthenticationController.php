@@ -11,8 +11,10 @@
 
 namespace SeerUK\Module\SecurityModule\Controller;
 
+use Aegis\Authentication\Result;
 use SeerUK\Module\SecurityModule\Form\Type\LoginType;
 use SeerUK\Module\SecurityModule\Token\UserToken;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Response;
 use Trident\Module\FrameworkModule\Controller\Controller;
 
@@ -25,8 +27,19 @@ class AuthenticationController extends Controller
 {
     public function loginAction()
     {
+        $request = $this->get('request');
+
+        if ($request->query->has('referer')) {
+            $redirect = $request->query->get('referer');
+        } else {
+            $redirect = $this->generateUrl('bm_blog_view', [
+                'id' => 1
+            ]);
+        }
+
+        // If the user is already authenticated, send them to the referer
         if ($this->get('security')->isAuthenticated()) {
-            // Redirect to admin homepage when it's created
+            return $this->redirect($redirect);
         }
 
         $ff = $this->get('form.factory');
@@ -40,20 +53,12 @@ class AuthenticationController extends Controller
 
             $result = $ss->authenticate($token);
 
-            // Do something with result (i.e. if status isn't 1)
-
-            if ($result->getCode()) {
-                $request = $this->get('request');
-
-                if ($request->query->has('referer')) {
-                    $redirect = $request->query->get('referer');
-                } else {
-                    $redirect = $this->generateUrl('bm_blog_view', [
-                        'id' => 1
-                    ]);
-                }
-
+            if ($result->getCode() === Result::SUCCESS) {
                 return $this->redirect($redirect);
+            } else {
+                $exception = $result->getException();
+
+                $form->addError(new FormError($exception->getMessage()));
             }
         }
 
