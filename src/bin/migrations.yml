@@ -1,4 +1,0 @@
-name: Migrations
-migrations_namespace: DoctrineMigrations
-table_name: trident_migration_versions
-migrations_directory: ../app/migrations
