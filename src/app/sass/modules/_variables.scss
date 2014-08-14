@@ -55,8 +55,8 @@ $line-height-base: 34px;
 $font-size-mono:   16px;
 $line-height-mono: 20px;
 
-$font-base: #{$font-size-base}/#{$line-height-base} $font-stack-base;
-$font-mono: #{$font-size-mono}/#{$line-height-mono} $font-stack-mono;
+$font-base: $font-weight-normal #{$font-size-base}/#{$line-height-base} $font-stack-base;
+$font-mono: $font-weight-normal #{$font-size-mono}/#{$line-height-mono} $font-stack-mono;
 
 
 // Scaffolding

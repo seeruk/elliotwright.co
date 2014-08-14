@@ -66,12 +66,13 @@ blockquote * {
 // Headers
 .title,
 .jumbo-title {
-    color: $charDark;
     font-size: $font-size-base * 3;
     font-weight: $font-weight-light;
     line-height: 1.2em;
-    margin-bottom: 1em;
-    margin-top: 0.67em;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 1em;
+    padding-top: 1em;
 
     .admin & {
         color: $white;
@@ -94,16 +95,18 @@ blockquote * {
     margin: 0.8em 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: $cyan;
-    font-weight: $font-weight-light;
-    line-height: 1.2em;
-    margin: 0.6em 0;
+section.content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $cyan;
+        font-weight: $font-weight-light;
+        line-height: 1.2em;
+        margin: 0.6em 0;
+    }
 }
 
 h1 {
@@ -132,12 +135,10 @@ h6 {
 
 // Footer
 .copyright {
-    @extend .centered;
     @extend .text-center;
 
     color: $text-muted;
     font-size: $font-size-base * 0.8;
-    padding: 50px 0;
 }
 
 // Monospaced

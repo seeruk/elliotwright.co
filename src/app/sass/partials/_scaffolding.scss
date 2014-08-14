@@ -16,6 +16,8 @@
     @extend .centered;
     @extend .clearfix;
 
+    background: #3a3f4f;
+
     &.navbar-fluid {
         display: block;
         width: 100%;
@@ -54,5 +56,40 @@ section.shaded {
 
 // Blog
 article {
-    @extend .centered;
+    section.content {
+        @extend .centered;
+
+        margin-top: 50px;
+
+        @include media(max-width 900px) {
+            padding: 0 50px;
+            width: 100%;
+        }
+    }
+
+    section.jumbotron {
+        background: #2b2f3e;
+        color: $white;
+
+        .jumbo-title {
+            @extend .centered;
+
+            @include media(max-width 900px) {
+                font-size: $font-size-base * 2;
+                width: 100%;
+            }
+        }
+    }
+}
+
+footer {
+    .copyright {
+        @extend .centered;
+
+        padding: 50px 0;
+
+        @include media(max-width 900px) {
+            width: 100%;
+        }
+    }
 }
