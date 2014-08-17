@@ -33,11 +33,11 @@ $brown:  #ab7967;
 
 
 // Typography
-$font-stack-serif: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-stack-sans:  "Alegreya Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-stack-mono:  Inconsolata, monospace;
-$font-stack-base:  $font-stack-serif;
+$font-stack-base:  $font-stack-sans;
 
-$text-base:       $charLight;
+$text-base:       $charDark;
 $text-admin-base: $smoke;
 $text-muted:      $smokeDark;
 $text-primary:    $blue;
@@ -57,7 +57,6 @@ $line-height-mono: 20px;
 
 $font-base: $font-weight-normal #{$font-size-base}/#{$line-height-base} $font-stack-base;
 $font-mono: $font-weight-normal #{$font-size-mono}/#{$line-height-mono} $font-stack-mono;
-
 
 // Scaffolding
 $content-width: 800px;

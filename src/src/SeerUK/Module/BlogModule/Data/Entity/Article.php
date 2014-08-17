@@ -11,6 +11,7 @@
 
 namespace SeerUK\Module\BlogModule\Data\Entity;
 
+use Carbon\Carbon;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -196,7 +197,7 @@ class Article
 
     public function getRelativePublished()
     {
-        return '3 days ago';
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->published->format('Y-m-d H:i:s'))->diffForHumans();
     }
 
     public function addCategory(Category $category)

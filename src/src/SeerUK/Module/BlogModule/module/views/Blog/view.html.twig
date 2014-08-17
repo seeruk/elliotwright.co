@@ -5,8 +5,7 @@
 {% block body %}
     <article>
         <section class="jumbotron">
-            <h1 class="jumbo-title text-center">
-                {{ article.title }}<br />
+            <h1 class="jumbo-title">
                 <small>
                     Published {{ article.relativePublished }} {# by {{ article.author.username }} #}
 
@@ -18,6 +17,7 @@
                         {% endfor %}
                     {% endif %}
                 </small>
+                {{ article.title }}
             </h1>
         </section>
         <section class="content">

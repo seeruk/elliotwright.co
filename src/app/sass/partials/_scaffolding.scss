@@ -11,12 +11,17 @@
  * Scaffolding
  */
 
+html,
+body {
+    height: 100%;
+}
+
 // Generic
 .navbar {
     @extend .centered;
     @extend .clearfix;
 
-    background: #3a3f4f;
+    background: $white;
 
     &.navbar-fluid {
         display: block;
@@ -27,10 +32,11 @@
     .brand {
         color: $text-muted;
         display: table;
-        font-weight: $font-weight-light;
-        font-size: $font-size-base * 1.3;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-base * 0.7;
         line-height: 1.3em;
-        padding: 30px;
+        padding: 20px;
+        text-transform: uppercase;
     }
 }
 
@@ -56,28 +62,16 @@ section.shaded {
 
 // Blog
 article {
+    @extend .clearfix;
+
+    section.jumbotron,
     section.content {
         @extend .centered;
 
-        margin-top: 50px;
-
         @include media(max-width 900px) {
-            padding: 0 50px;
+            height: auto;
+            padding: 0 50px 0;
             width: 100%;
-        }
-    }
-
-    section.jumbotron {
-        background: #2b2f3e;
-        color: $white;
-
-        .jumbo-title {
-            @extend .centered;
-
-            @include media(max-width 900px) {
-                font-size: $font-size-base * 2;
-                width: 100%;
-            }
         }
     }
 }
