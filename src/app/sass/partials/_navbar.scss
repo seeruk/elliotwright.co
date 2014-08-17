@@ -1,0 +1,115 @@
+/*
+ * This file is part of elliotwright.co
+ *
+ * (c) Elliot Wright <elliot@elliotwright.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * Navbar
+ */
+
+.navbar {
+    @extend .clearfix;
+
+    background: $white;
+    position: relative;
+
+    &.headroom {
+        transition: transform 200ms linear;
+    }
+    &.headroom--pinned {
+        transform: translateY(0%);
+    }
+    &.headroom--unpinned {
+        transform: translateY(-100%);
+    }
+}
+
+.navbar-collapse {
+    @extend .clearfix;
+
+    overflow-x: visible;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+}
+
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+.navbar-fixed-top {
+    top: 0;
+}
+.navbar-fixed-bottom {
+    bottom: 0;
+    margin-bottom: 0;
+}
+
+.navbar-brand {
+    @include transition(all 0.2s ease);
+
+    color: $text-muted;
+    float: left;
+    font-size: $font-size-base * 0.7;
+    font-weight: $font-weight-bold;
+    line-height: 1.3em;
+    padding: 20px;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+        color: darken($text-muted, 10%);
+        text-decoration: none;
+    }
+}
+
+.navbar-header {
+    @extend .clearfix;
+
+    float: left;
+}
+
+.navbar-nav {
+    @extend .clearfix;
+
+    float: left;
+    list-style: none;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+
+    > li {
+        float: left;
+
+        > a {
+          @include transition(all 0.2s ease);
+
+            color: $text-muted;
+            display: block;
+            font-size: $font-size-base * 0.7;
+            font-weight: $font-weight-bold;
+            padding: 20px;
+            text-transform: uppercase;
+
+            &:hover,
+            &:focus {
+                color: darken($text-muted, 10%);
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.navbar-left {
+    float: left;
+}
+.navbar-right {
+    float: right;
+}

@@ -148,6 +148,18 @@ class Article
     }
 
     /**
+     * Get first paragraph of content
+     *
+     * @return string
+     */
+    public function getFirstParagraph()
+    {
+        $split = explode("\n", $this->getContent());
+
+        return trim($split[0]);
+    }
+
+    /**
      * Set created
      *
      * @param DateTime $created

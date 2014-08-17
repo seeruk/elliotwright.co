@@ -51,7 +51,7 @@ $font-weight-normal: 400;
 $font-weight-bold:   700;
 
 $font-size-base:   20px;
-$line-height-base: 34px;
+$line-height-base: 32px;
 $font-size-mono:   16px;
 $line-height-mono: 20px;
 
@@ -59,4 +59,7 @@ $font-base: $font-weight-normal #{$font-size-base}/#{$line-height-base} $font-st
 $font-mono: $font-weight-normal #{$font-size-mono}/#{$line-height-mono} $font-stack-mono;
 
 // Scaffolding
-$content-width: 800px;
+$screen-phone: 480px;
+$screen-tablet: 768px;
+$screen-med: 992px;
+$screen-lar: 1200px;

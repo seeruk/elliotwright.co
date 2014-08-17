@@ -72,61 +72,6 @@ blockquote * {
 .text-warning { color: $text-warning; }
 .text-danger { color: $text-danger; }
 
-// Headers
-.title,
-.jumbo-title {
-    font-size: $font-size-base * 3;
-    font-weight: $font-weight-light;
-    line-height: 1.2em;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 1em;
-    padding-top: 1em;
-
-    .admin & {
-        color: $white;
-    }
-
-    img {
-        vertical-align: middle;
-    }
-
-    small {
-        color: $text-muted;
-        display: block;
-        font-weight: $font-weight-bold;
-        font-size: $font-size-base * 0.8;
-    }
-}
-
-.jumbo-title {
-    color: $charLight;
-}
-
-.title {
-    font-size: $font-size-base * 2;
-    margin: 0.8em 0;
-}
-
-section.content {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: $cyan;
-        font-weight: $font-weight-light;
-        line-height: 1.2em;
-        margin: 0.6em 0;
-    }
-
-    p:first-child {
-        font-size: $font-size-base * 1.2;
-        line-height: $line-height-base * 1.2;
-    }
-}
-
 h1 {
     font-size: $font-size-base * 2;
 }
@@ -151,15 +96,6 @@ h6 {
     font-size: $font-size-base * 0.8;
 }
 
-// Footer
-.copyright {
-    @extend .text-center;
-
-    color: $text-muted;
-    font-size: $font-size-base * 0.8;
-}
-
-// Monospaced
 .mono {
     font: $font-mono;
 }
