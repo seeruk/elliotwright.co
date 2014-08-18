@@ -31,10 +31,18 @@
 .navbar-collapse {
     @extend .clearfix;
 
-    overflow-x: visible;
+    @include transition(all 0.35s ease);
+
+    height: 0;
+    overflow: hidden;
     padding-left: 20px;
     padding-right: 20px;
     width: auto;
+
+    @include media(min-width $screen-tablet) {
+        display: block;
+        height: auto !important;
+    }
 }
 
 .navbar-fixed-top,
@@ -73,30 +81,28 @@
 .navbar-header {
     @extend .clearfix;
 
-    float: left;
+    @include media(min-width $screen-tablet) {
+        float: left;
+    }
 }
 
 .navbar-nav {
     @extend .clearfix;
 
-    float: left;
     list-style: none;
     line-height: normal;
-    margin: 0;
+    margin: 0 -20px;
     padding: 0;
 
     > li {
-        float: left;
-
         > a {
-          @include transition(all 0.2s ease);
+            @include transition(all 0.2s ease);
 
             color: $text-muted;
             display: block;
             font-size: $font-size-base * 0.7;
-            font-weight: $font-weight-bold;
             padding: 20px;
-            text-transform: uppercase;
+            width: 100%;
 
             &:hover,
             &:focus {
@@ -104,12 +110,111 @@
                 text-decoration: none;
             }
         }
+
+        @include media(min-width $screen-tablet) {
+            float: left;
+        }
     }
 }
 
 .navbar-left {
-    float: left;
+    @include media(min-width $screen-tablet) {
+        float: left;
+    }
 }
 .navbar-right {
+    @include media(min-width $screen-tablet) {
+        float: right;
+    }
+}
+
+$navbar-hamburger-duration: 0.5s;
+$navbar-hamburger-toggled-size: 0.75;
+$navbar-hamburger-width: 30px;
+
+.navbar-hamburger {
+    @include user-select(none);
+
+    cursor: pointer;
+    display: inline-block;
     float: right;
+    padding: 28px 20px;
+    position: relative;
+    transition: $navbar-hamburger-duration/2;
+
+    @include media(min-width $screen-tablet) {
+        display: none;
+    }
+
+    .navicon:before,
+    .navicon:after {
+        transition: $navbar-hamburger-duration/2;
+    }
+
+    &:hover {
+        transition: $navbar-hamburger-duration;
+
+        .navicon:before,
+        .navicon:after {
+            transition: $navbar-hamburger-duration/2;
+        }
+
+        .navicon:before {
+            top: 0.45em;
+        }
+
+        .navicon:after {
+            top: -0.45em;
+        }
+    }
+
+    .navicon {
+        background: $text-muted;
+        border-radius: 1em;
+        height: 2px;
+        position: relative;
+        transition: $navbar-hamburger-duration;
+        width: $navbar-hamburger-width;
+
+        &:before,
+        &:after {
+            background: $text-muted;
+            content: "";
+            display: block;
+            height: 2px;
+            position: absolute;
+            width: $navbar-hamburger-width;
+            z-index: -1;
+            transition: $navbar-hamburger-duration/2;
+            border-radius: 1em;
+        }
+
+        &:before {
+            top: 0.4em;
+        }
+
+        &:after {
+            top: -0.4em;
+        }
+    }
+
+    &.open {
+        & .navicon {
+            background: transparent;
+
+            &:before,
+            &:after {
+                background: $red;
+                top: 0;
+            }
+
+            &:before {
+                transform: rotate(-45deg);
+            }
+
+            &:after {
+                transform: rotate(45deg);
+            }
+        }
+    }
 }

@@ -1,0 +1,45 @@
+/*
+ * This file is part of elliotwright.co
+ *
+ * (c) Elliot Wright <elliot@elliotwright.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * Social
+ */
+
+.social-centered {
+    text-align: center;
+}
+
+.social-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+        display: inline-block;
+        padding-right: 10px;
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+
+.footer-social {
+    margin: 0 auto;
+    padding: 50px 0;
+
+    @include media(min-width $screen-tablet) {
+        width: $screen-tablet;
+    }
+
+    @include media(min-width $screen-med) {
+        width: $screen-med;
+    }
+}
