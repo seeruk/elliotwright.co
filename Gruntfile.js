@@ -76,7 +76,8 @@ module.exports = function (grunt) {
                     spawn: false
                 },
                 files: [
-                    '<%= dirs.vendor %>/**/*.js'
+                    '<%= dirs.vendor %>/**/*.js',
+                    '<%= dirs.src.js %>/**/*.js',
                 ],
                 tasks: ['js']
             }
