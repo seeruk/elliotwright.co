@@ -1,0 +1,28 @@
+{
+  "name": "elliotwright.co",
+  "version": "0.0.0",
+  "homepage": "https://github.com/SeerUK/elliotwright.co",
+  "authors": [
+    "Elliot Wright <elliot@elliotwright.co>"
+  ],
+  "description": "Personal website of Elliot Wright",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "blog"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/app/Resources/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}

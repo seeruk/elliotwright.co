@@ -5,7 +5,21 @@ module.exports = function (grunt) {
     grunt.initConfig({
         dirs: {
             css: 'src/app/public/css',
-            sass: 'src/app/sass'
+            js: 'src/app/public/js',
+            sass: 'src/app/Resources/sass',
+            vendor: 'src/app/Resources/vendor'
+        },
+        concat: {
+            options: {
+                seperator: ';'
+            },
+            dist: {
+                files: {
+                    '<%= dirs.js %>/scripts.js': [
+                        '<%= dirs.vendor %>/jquery/dist/jquery.js'
+                    ]
+                }
+            }
         },
         sass: {
             dist: {
@@ -14,6 +28,16 @@ module.exports = function (grunt) {
                 },
                 files: {
                     '<%= dirs.css %>/style.css': '<%= dirs.sass %>/style.scss'
+                }
+            }
+        },
+        uglify: {
+            options: {
+                mangle: false
+            },
+            dist: {
+                files: {
+                    '<%= dirs.js %>/scripts.min.js': ['<%= dirs.js %>/scripts.js']
                 }
             }
         },
@@ -28,6 +52,15 @@ module.exports = function (grunt) {
                 options: {
                     spawn: false
                 }
+            },
+            js: {
+                files: [
+                    '<%= dirs.vendor %>/**/*.js'
+                ],
+                tasks: ['js'],
+                options: {
+                    spawn: false
+                }
             }
         }
     });
@@ -39,4 +72,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', ['css']);
     grunt.registerTask('css', ['sass']);
+    grunt.registerTask('js', ['concat', 'uglify']);
 };

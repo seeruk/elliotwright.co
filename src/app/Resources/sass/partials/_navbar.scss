@@ -95,6 +95,12 @@
     padding: 0;
 
     > li {
+        &:hover,
+        &:focus,
+        &:active {
+            background: darken($white, 3%);
+        }
+
         > a {
             @include transition(all 0.2s ease);
 
@@ -184,7 +190,7 @@ $navbar-hamburger-width: 30px;
             height: 2px;
             position: absolute;
             width: $navbar-hamburger-width;
-            z-index: -1;
+            z-index: 1;
             transition: $navbar-hamburger-duration/2;
             border-radius: 1em;
         }
