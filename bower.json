@@ -23,6 +23,9 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "normalize.css": "~3.0.1",
+    "bourbon": "~4.0.2",
+    "neat": "~1.6.0"
   }
 }

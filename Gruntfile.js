@@ -6,28 +6,48 @@ module.exports = function (grunt) {
         dirs: {
             css: 'src/app/public/css',
             js: 'src/app/public/js',
-            sass: 'src/app/Resources/sass',
+            src: {
+                css: 'src/app/Resources/src/css',
+                js: 'src/app/Resources/src/js',
+                sass: 'src/app/Resources/src/sass'
+            },
             vendor: 'src/app/Resources/vendor'
         },
         concat: {
             options: {
                 seperator: ';'
             },
-            dist: {
+            css: {
+                files: {
+                    '<%= dirs.css %>/style.css': [
+                        '<%= dirs.vendor %>/normalize.css/normalize.css',
+                        '<%= dirs.src.css %>/**/*.css'
+                    ]
+                }
+            },
+            js: {
                 files: {
                     '<%= dirs.js %>/scripts.js': [
-                        '<%= dirs.vendor %>/jquery/dist/jquery.js'
+                        '<%= dirs.vendor %>/jquery/dist/jquery.js',
+                        '<%= dirs.src.js %>/**/*.js',
                     ]
                 }
             }
         },
-        sass: {
+        cssmin: {
             dist: {
-                options: {
-                    style: 'compressed'
-                },
                 files: {
-                    '<%= dirs.css %>/style.css': '<%= dirs.sass %>/style.scss'
+                    '<%= dirs.css %>/style.min.css': ['<%= dirs.css %>/style.css']
+                }
+            }
+        },
+        sass: {
+            options: {
+                style: 'compressed'
+            },
+            dist: {
+                files: {
+                    '<%= dirs.src.css %>/style.css': ['<%= dirs.src.sass %>/style.scss']
                 }
             }
         },
@@ -43,34 +63,33 @@ module.exports = function (grunt) {
         },
         watch: {
             css: {
-                files: [
-                    '<%= dirs.sass %>/*.scss',
-                    '<%= dirs.sass %>/modules/*.scss',
-                    '<%= dirs.sass %>/partials/*.scss',
-                ],
-                tasks: ['css'],
                 options: {
                     spawn: false
-                }
+                },
+                files: [
+                    '<%= dirs.src.sass %>/**/*.scss'
+                ],
+                tasks: ['css']
             },
             js: {
+                options: {
+                    spawn: false
+                },
                 files: [
                     '<%= dirs.vendor %>/**/*.js'
                 ],
-                tasks: ['js'],
-                options: {
-                    spawn: false
-                }
+                tasks: ['js']
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['css']);
-    grunt.registerTask('css', ['sass']);
-    grunt.registerTask('js', ['concat', 'uglify']);
+    grunt.registerTask('default', ['css', 'js']);
+    grunt.registerTask('css', ['sass', 'concat:css', 'cssmin']);
+    grunt.registerTask('js', ['concat:js', 'uglify']);
 };

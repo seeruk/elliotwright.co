@@ -6,13 +6,10 @@
 
     <title>{% block title %}{% endblock %}{% if block('title') %} &middot; {% endif %}{{ config.get('app.site_name') }}</title>
 
-    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/tridentframeworkmodule/fonts/inconsolata/inconsolata.css') }}" rel="stylesheet" type="text/css" />
     <link href='//fonts.googleapis.com/css?family=Alegreya+Sans:300,400,700,400italic,700italic,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href="{{ asset('assets/core/css/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/core/css/prism.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/core/css/style.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/core/fonts/flaticons-social/social.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/tridentframeworkmodule/fonts/inconsolata/inconsolata.css') }}" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <header class="navbar" role="navigation">
@@ -37,13 +34,12 @@
             <ul class="social-items">
                 <li><a href="https://www.facebook.com/wright.elliot" target="_blank"><i class="flaticon social facebook-1"></i></a></li>
                 <li><a href="https://github.com/SeerUK" target="_blank"><i class="flaticon social github-1"></i></a></li>
+                <li><a href="https://www.linkedin.com/profile/view?id=204674421" target="_blank"><i class="flaticon social linkedin-1"></i></a></li>
             </ul>
         </div>
     </footer>
 
     <script src="{{ asset('assets/core/js/scripts.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/core/js/prism.js') }}" type="text/javascript"></script>
-
     <script type="text/javascript">
         var $hamburger = $('.navbar-hamburger');
 

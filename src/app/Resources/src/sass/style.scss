@@ -16,8 +16,8 @@
 }
 
 // Bourbon
-@import "bourbon/bourbon";
-@import "neat/neat";
+@import "../../vendor/bourbon/dist/bourbon";
+@import "../../vendor/neat/app/assets/stylesheets/neat";
 
 // Modules
 @import "modules/variables";
