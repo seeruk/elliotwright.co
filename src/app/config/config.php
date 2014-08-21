@@ -7,13 +7,13 @@ return [
     'caching' => [
         'default' => 'memcached',
         'memcached' => [
-            'host' => 'localhost',
+            'host' => '192.168.50.30',
             'port' => 11211
         ]
     ],
     'database' => [
         'default' => [
-            'host' => 'localhost',
+            'host' => '192.168.50.20',
             'username' => 'tifa',
             'password' => '',
             'port' => '3306',
