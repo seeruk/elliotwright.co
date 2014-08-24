@@ -26,7 +26,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Article
 {
-    const ERR_NO_ARTICLE = 'No article found with id "%s"';
+    const ERR_NO_ARTICLE = 'No article found with slug "%s"';
 
     /**
      * @var int
@@ -49,6 +49,13 @@ class Article
      * )
      */
     protected $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=250)
+     */
+    protected $slug;
 
     /**
      * @var string
@@ -121,6 +128,30 @@ class Article
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Article
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**

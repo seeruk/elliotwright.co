@@ -30,21 +30,21 @@ class BlogController extends Controller
     /**
      * View a blog article
      *
-     * @param integer $id
+     * @param string $slug
      *
      * @return Response
      */
-    public function viewAction($id)
+    public function viewAction($slug)
     {
-        return $this->get('caching.proxy')->proxy("rendered.blog.article.$id",
-            function() use ($id) {
+        return $this->get('caching.proxy')->proxy("rendered.blog.article.$slug",
+            function() use ($slug) {
                 $twig = $this->get('bm.templating.engine.twig.string');
                 $ar   = $this->get('bm.repository.article');
 
-                $article = $ar->findOneById($id);
+                $article = $ar->findOneBySlug($slug);
 
                 if ( ! $article) {
-                    throw new NotFoundHttpException(sprintf(Article::ERR_NO_ARTICLE, $id));
+                    throw new NotFoundHttpException(sprintf(Article::ERR_NO_ARTICLE, $slug));
                 }
 
                 // Render the content and set it inside the article for view

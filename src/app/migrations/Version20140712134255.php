@@ -16,6 +16,7 @@ class Version20140712134255 extends AbstractMigration
 CREATE TABLE article (
     id int UNSIGNED NOT NULL AUTO_INCREMENT,
     title varchar(250) NOT NULL,
+    slug varchar(250) NOT NULL,
     content mediumtext NOT NULL,
     created datetime NOT NULL,
     published datetime NOT NULL,
