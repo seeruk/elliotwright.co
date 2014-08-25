@@ -9351,7 +9351,13 @@ return jQuery;
         var $parent = $this.parent();
         var $menu   = $this.siblings('.dropdown-menu');
 
-        $parent.toggleClass('open');
+        var state = $parent.hasClass('open');
+
+        $('.dropdown-menu').parent().removeClass('open');
+
+        if ( ! state) {
+            $parent.toggleClass('open');
+        }
     });
 
     $(document).click(function(e) {
