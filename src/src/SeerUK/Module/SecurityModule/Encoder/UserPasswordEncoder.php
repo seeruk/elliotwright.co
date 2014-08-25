@@ -29,7 +29,7 @@ class UserPasswordEncoder
     public function encode($password, $salt = null)
     {
         $options = [];
-        $options['cost'] = 20;
+        $options['cost'] = 10;
 
         if (null !== $salt) {
             $options['salt'] = (string) $salt;

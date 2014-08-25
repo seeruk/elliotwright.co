@@ -1,3 +1,3 @@
-am_index:
-    path: /dashboard
-    defaults: { _controller: SeerUK\Module\AdminModule\Controller\AdminController::indexAction }
+am_blog_article_edit:
+    path: /admin/article/edit/{id}
+    defaults: { _controller: SeerUK\Module\AdminModule\Controller\Blog\ArticleController::editAction }
