@@ -1,5 +1,11 @@
 <?php
 
+$dbHost = '192.168.50.20';
+$dbPort = '3306';
+$dbUser = 'tifa';
+$dbPass = '';
+$dbName = 'elliotwright';
+
 return [
     'app' => [
         'site_name' => 'Elliot Wright'
@@ -13,11 +19,38 @@ return [
     ],
     'database' => [
         'default' => [
-            'host' => '192.168.50.20',
-            'username' => 'tifa',
-            'password' => '',
-            'port' => '3306',
-            'database' => 'elliotwright'
+            'host'     => $dbHost,
+            'port'     => $dbPort,
+            'username' => $dbUser,
+            'password' => $dbPass,
+            'database' => $dbName
+        ]
+    ],
+    'migrations' => [
+        'paths' => [
+            'migrations' => __DIR__.'/../migrations'
+        ],
+        'environments' => [
+            'default_migration_table' => 'migrations_tracking',
+            'default_database' => 'dev',
+            'prod' => [
+                'adapter' => 'mysql',
+                'host'    => $dbHost,
+                'name'    => $dbName,
+                'user'    => $dbUser,
+                'pass'    => $dbPass,
+                'port'    => $dbPort,
+                'charset' => 'utf8'
+            ],
+            'dev' => [
+                'adapter' => 'mysql',
+                'host'    => $dbHost,
+                'name'    => $dbName,
+                'user'    => $dbUser,
+                'pass'    => $dbPass,
+                'port'    => $dbPort,
+                'charset' => 'utf8'
+            ]
         ]
     ],
     'security' => [
