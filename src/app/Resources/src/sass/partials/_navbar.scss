@@ -39,9 +39,16 @@
     padding-right: 20px;
     width: auto;
 
+    &.open {
+        height: auto !important;
+    }
+
     @include media(min-width $screen-tablet) {
         display: block;
         height: auto !important;
+        overflow: visible;
+        padding-left: 40px;
+        padding-right: 40px;
     }
 }
 
@@ -94,16 +101,10 @@
     margin: 0 -20px;
     padding: 0;
 
-    > li {
+    li {
         @include transition(all 0.2s ease);
 
-        &:hover,
-        &:focus,
-        &:active {
-            background: darken($white, 3%);
-        }
-
-        > a {
+        a {
             @include transition(all 0.2s ease);
 
             color: $text-muted;
@@ -111,12 +112,13 @@
             font-size: $font-size-base * 0.7;
             padding: 20px;
             width: 100%;
+        }
 
-            &:hover,
-            &:focus {
-                color: darken($text-muted, 10%);
-                text-decoration: none;
-            }
+        a:hover,
+        &.open > a {
+            color: darken($text-muted, 10%);
+            background: darken($white, 3%);
+            text-decoration: none;
         }
 
         @include media(min-width $screen-tablet) {

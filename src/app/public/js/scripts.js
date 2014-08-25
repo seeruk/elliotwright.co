@@ -9190,6 +9190,77 @@ return jQuery;
 }));
 
 /* =============================================================================
+ * CSS Transition Support - Stolen from Twitter Bootstrap
+ *
+ * (c) Elliot Wright <elliot@elliotwright.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ * ========================================================================== */
+
++function ($) { "use strict";
+
+    function transitionEnd() {
+        var el = document.createElement('trident');
+
+        var transEndEventNames = {
+            'WebkitTransition': 'webkitTransitionEnd',
+            'MozTransition': 'transitionend',
+            'OTransition': 'oTransitionEnd otransitionend',
+            'transition': 'transitionend'
+        };
+
+        for (var name in transEndEventNames) {
+            if (el.style[name] !== undefined) {
+                return {
+                    end: transEndEventNames[name]
+                };
+            }
+        }
+
+        return false;
+    }
+
+    $.fn.emulateTransitionEnd = function (duration) {
+        var $el = this;
+        var called = false;
+
+        $(this).one('tridentTransitionEnd', function () {
+            called = true
+        });
+
+        var callback = function () {
+            if (!called) {
+                $($el).trigger($.support.transition.end) ;
+            }
+        }
+
+        setTimeout(callback, duration);
+
+        return this;
+    }
+
+    $(function () {
+        $.support.transition = transitionEnd();
+
+        if (!$.support.transition) {
+            return;
+        }
+
+        $.event.special.tridentTransitionEnd = {
+            bindType: $.support.transition.end,
+            delegateType: $.support.transition.end,
+            handle: function (e) {
+                if ($(e.target).is(this)) {
+                    return e.handleObj.handler.apply(this, arguments);
+                }
+            }
+        };
+    })
+
+}(jQuery);
+
+/* =============================================================================
  * Ultra Simple Collapse Module
  *
  * (c) Elliot Wright <elliot@elliotwright.co>
@@ -9198,28 +9269,95 @@ return jQuery;
  * file that was distributed with this source code.
  * ========================================================================== */
 
-+function($) {
++function($) { "use strict";
+
+    var speed = 350;
+
     $('[data-collapse]').click(function(e) {
         e.preventDefault();
 
         var $this   = $(this);
         var $target = $($this.data('target'));
 
+        var $clone = $target.clone().css({'height': 'auto'}).appendTo($target.parent());
+        var height = $clone.height();
+        $clone.remove();
+
+        if ($target.data('transitioning')) {
+            return;
+        }
+
         $this.toggleClass('open');
 
-        $target.toggleClass('open').promise().done(function() {
-            var $clone = $target.clone().css({'height': 'auto'}).appendTo($target.parent());
-            var height = $clone.height();
+        if ($target.hasClass('open')) {
+            $target.data('transitioning', true);
 
-            $clone.remove();
+            // Hide
+            var complete = function() {
+                $target.height(0);
+                $target.data('transitioning', false);
+            };
 
-            if ($target.hasClass('open')) {
-                $target.css({'height': height});
-            } else {
-                $target.css({'height': ''});
+            if ( ! $.support.transition) {
+                return complete.call(this);
             }
-        });
+
+            $target
+                .removeClass('open')
+                .css({'height': height})
+                .emulateTransitionEnd(0)
+                .one('tridentTransitionEnd', $.proxy(complete, this))
+            ;
+        } else {
+            $target.data('transitioning', true);
+
+            // Show
+            var complete = function() {
+                $target.addClass('open');
+                $target.css({'height': ''});
+                $target.data('transitioning', false);
+            };
+
+            if ( ! $.support.transition) {
+                return complete.call(this);
+            }
+
+            $target
+                .one('tridentTransitionEnd', $.proxy(complete, this))
+                .emulateTransitionEnd(speed)
+                .height(height)
+            ;
+        }
     });
+
+}(jQuery);
+
+/* =============================================================================
+ * Dropdown Menu Module
+ *
+ * (c) Elliot Wright <elliot@elliotwright.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ * ========================================================================== */
+
++function($) { "use strict";
+
+    $('[data-dropdown]').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var $this   = $(this);
+        var $parent = $this.parent();
+        var $menu   = $this.siblings('.dropdown-menu');
+
+        $parent.toggleClass('open');
+    });
+
+    $(document).click(function(e) {
+        $('.dropdown-menu').parent().removeClass('open');
+    });
+
 }(jQuery);
 
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+css-extras+clike+javascript+php+php-extras+coffeescript+scss+bash+python+sql+http+ruby+csharp+ini&plugins=show-invisibles */
