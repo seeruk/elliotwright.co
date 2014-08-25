@@ -12,16 +12,24 @@
 namespace SeerUK\Module\SecurityModule;
 
 use Phimple\Container;
+use SeerUK\Module\SecurityModule\Console\Command\CreateUserCommand;
+use Symfony\Component\Console\Application;
 use Symfony\Component\Routing\RouteCollection;
 use Trident\Component\HttpKernel\Module\AbstractModule;
+use Trident\Component\HttpKernel\Module\ConsoleModuleInterface;
 
 /**
  * SeerUK Security Bundle
  *
  * @author Elliot Wright <elliot@elliotwright.co>
  */
-class SeerUKSecurityModule extends AbstractModule
+class SeerUKSecurityModule extends AbstractModule implements ConsoleModuleInterface
 {
+    public function registerCommands(Application $application)
+    {
+        $application->add(new CreateUserCommand());
+    }
+
     /**
      * {@inheritDoc}
      */

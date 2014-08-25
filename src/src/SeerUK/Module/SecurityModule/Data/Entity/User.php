@@ -50,6 +50,20 @@ class User implements UserInterface
     /**
      * @var string
      *
+     * @ORM\Column(name="first_name", type="string", length=30)
+     */
+    protected $firstName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="last_name", type="string", length=30)
+     */
+    protected $lastName;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="email", type="string", length=250)
      */
     protected $email;
@@ -118,6 +132,54 @@ class User implements UserInterface
     }
 
     /**
+     * Set first name
+     *
+     * @param string $firstName
+     *
+     * @return User
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get first name
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set last name
+     *
+     * @param string $lastName
+     *
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get last name
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
      * Set email
      *
      * @param string $email
@@ -139,6 +201,30 @@ class User implements UserInterface
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set created
+     *
+     * @param Datetime $created
+     *
+     * @return User
+     */
+    public function setCreated(\Datetime $created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return Datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 
     /**
