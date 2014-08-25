@@ -138,6 +138,15 @@
     }
 }
 
+.navbar-avatar {
+    border-radius: 50px;
+    display: inline-block;
+    height: 32px;
+    margin: -20px 10px -20px 0;
+    vertical-align: middle;
+    width: 32px;
+}
+
 $navbar-hamburger-duration: 0.35s;
 $navbar-hamburger-toggled-size: 0.75;
 $navbar-hamburger-width: 30px;

@@ -31,7 +31,11 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" data-dropdown>{{ app.user.username }} <span class="caret"></span></a>
+                        <a href="#" data-dropdown>
+                            <img class="navbar-avatar" src="//secure.gravatar.com/avatar/128f8ce5456a7c64f67626b2b756c7e6?s=64" />
+                            {{ app.user.email }}
+                            <span class="caret"></span>
+                        </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Edit Account</a></li>
                             <li><a href="#">Sign Out</a></li>
