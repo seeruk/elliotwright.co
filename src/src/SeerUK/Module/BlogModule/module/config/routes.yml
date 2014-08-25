@@ -1,6 +1,6 @@
-bm_blog_view:
+bm_blog_article_view:
     path: /article/{slug}
-    defaults: { _controller: SeerUK\Module\BlogModule\Controller\BlogController::viewAction }
+    defaults: { _controller: SeerUK\Module\BlogModule\Controller\ArticleController::viewAction }
     requirements:
         id: \d+
 

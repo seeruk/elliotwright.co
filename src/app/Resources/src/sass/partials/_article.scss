@@ -33,29 +33,33 @@ article {
 }
 
 .article-title {
-    padding: 1em 0;
+    padding: 3em 0;
 
     h1 {
         color: $charLight;
         font-size: $font-size-base * 2;
         font-weight: $font-weight-light;
         line-height: 1.2em;
+        margin: 0;
+    }
 
-        small {
-            color: $text-muted;
-            display: block;
-            font-size: $font-size-base * 0.8;
-            font-weight: $font-weight-bold;
-        }
+    small {
+        color: $text-muted;
+        display: block;
+        font-size: $font-size-base * 0.8;
+        font-weight: $font-weight-bold;
     }
 
     @include media(min-width $screen-tablet) {
+        padding: 3.5em 0;
         h1 {
             font-size: $font-size-base * 2.5;
         }
     }
 
     @include media(min-width $screen-med) {
+        padding: 4em 0;
+
         h1 {
             font-size: $font-size-base * 3;
         }

@@ -3,27 +3,25 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block body %}
+
     <article>
         <section class="article-title">
-            <h1>
-                {% spaceless %}
-                    <small>
-                        Published {{ article.relativePublished }} {# by {{ article.author.username }} #}
+            <small>
+                Published {{ article.relativePublished }} {# by {{ article.user.firstName }} {{ article.user.lastName }} #}
 
-                        {% if article.categories|length > 0 %}
-                            in
-                            {% for category in article.categories %}
-                                {# Show the categories in a readable manner, i.e. "Category, Category, Category, and Category" #}
-                                {% if loop.last and article.categories|length > 1 %}and {% endif %}<a href="#">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    </small>
-                    {{ article.title }}
-                {% endspaceless %}
-            </h1>
+                {% if article.categories|length > 0 %}
+                    in
+                    {% for category in article.categories %}
+                        {# Show the categories in a readable manner, i.e. "Category, Category, Category, and Category" #}
+                        {% if loop.last and article.categories|length > 1 %}and {% endif %}<a href="#">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </small>
+            <h1>{{ article.title }}</h1>
         </section>
         <section class="article-content">
             {{ article.content|raw }}
         </section>
     </article>
+
 {% endblock %}

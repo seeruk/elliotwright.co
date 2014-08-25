@@ -19,13 +19,13 @@ use Trident\Component\HttpKernel\Exception\NotFoundHttpException;
 use Trident\Module\FrameworkModule\Controller\Controller;
 
 /**
- * Blog Controller
+ * Article Controller
  *
  * Controls the homepage of the portfolio/blog
  *
  * @author Elliot Wright <elliot@elliotwright.co>
  */
-class BlogController extends Controller
+class ArticleController extends Controller
 {
     /**
      * View a blog article

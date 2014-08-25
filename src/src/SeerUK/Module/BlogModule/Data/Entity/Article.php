@@ -14,6 +14,7 @@ namespace SeerUK\Module\BlogModule\Data\Entity;
 use Carbon\Carbon;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use SeerUK\Module\SecurityModule\Data\Entity\User;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -36,6 +37,14 @@ class Article
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="SeerUK\Module\SecurityModule\Data\Entity\User", fetch="EAGER")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user;
 
     /**
      * @var string
@@ -104,6 +113,30 @@ class Article
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set user
+     *
+     * @param User $user
+     *
+     * @return Article
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 
     /**
