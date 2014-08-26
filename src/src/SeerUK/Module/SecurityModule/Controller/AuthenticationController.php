@@ -12,6 +12,7 @@
 namespace SeerUK\Module\SecurityModule\Controller;
 
 use Aegis\Authentication\Result;
+use Aegis\Token\AnonymousToken;
 use SeerUK\Module\SecurityModule\Form\Type\LoginType;
 use SeerUK\Module\SecurityModule\Token\UserToken;
 use Symfony\Component\Form\FormError;
@@ -25,6 +26,11 @@ use Trident\Module\FrameworkModule\Controller\Controller;
  */
 class AuthenticationController extends Controller
 {
+    /**
+     * Authenticate a user with the given credentials (form data)
+     *
+     * @return Response
+     */
     public function loginAction()
     {
         $request = $this->get('request');
@@ -37,13 +43,13 @@ class AuthenticationController extends Controller
             ]);
         }
 
-        // If the user is already authenticated, send them to the referer
-        if ($this->get('security')->isAuthenticated()) {
-            return $this->redirect($redirect);
-        }
-
         $ff = $this->get('form.factory');
         $ss = $this->get('security');
+
+        // If the user is already authenticated, send them to the referer
+        if ($ss->isAuthenticated()) {
+            return $this->redirect($redirect);
+        }
 
         $form = $ff->create(new LoginType(), []);
         $form->handleRequest($this->get('request'));
@@ -62,9 +68,23 @@ class AuthenticationController extends Controller
             }
         }
 
-
         return $this->render('SeerUKSecurityModule:Authentication:login.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * Unauthenticate current session, if there is one
+     *
+     * @return Response
+     */
+    public function logoutAction()
+    {
+        $ss = $this->get('security');
+        $ss->unauthenticate();
+
+        return $this->redirect($this->generateUrl('bm_blog_article_view', [
+            'slug' => 'a-test-article'
+        ]));
     }
 }
