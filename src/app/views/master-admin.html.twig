@@ -8,6 +8,7 @@
 
     <link href='//fonts.googleapis.com/css?family=Alegreya+Sans:300,400,700,400italic,700italic,300italic' rel='stylesheet' type='text/css'>
     <link href="{{ asset('assets/core/css/style.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/core/fonts/flaticons-stroke/stroke.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/core/fonts/flaticons-social/social.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/tridentframeworkmodule/fonts/inconsolata/inconsolata.css') }}" rel="stylesheet" type="text/css" />
 </head>
@@ -22,23 +23,23 @@
         <nav class="navbar-collapse pri-navbar-collapse" role="navigation">
             <div class="navbar-right">
                 <ul class="navbar-nav clearfix">
-                    <li><button type="button">Add Article</button></li>
+                    <li><a href="#" class="button button-block button-success"><i class="flaticon stroke add-window-1"></i> Add Article</a></li>
                     <li class="dropdown">
-                        <a href="#" data-dropdown>Blog <span class="caret"></span></a>
+                        <a class="navbar-link" href="#" data-dropdown><i class="flaticon stroke paragraph-text-1"></i> Blog <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Articles</a></li>
-                            <li><a href="#">Categories</a></li>
+                            <li><a class="navbar-link" href="#"><i class="flaticon stroke article-3"></i> Articles</a></li>
+                            <li><a class="navbar-link" href="#"><i class="flaticon stroke inbox-1"></i> Categories</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" data-dropdown>
-                            <img class="navbar-avatar" src="//secure.gravatar.com/avatar/128f8ce5456a7c64f67626b2b756c7e6?s=64" />
-                            {{ app.user.email }}
+                        <a class="navbar-link" href="#" data-dropdown>
+                            <img class="navbar-avatar" src="{{ app.user.email|gravatar(64) }}" />
+                            {{ app.user.firstName }} {{ app.user.lastName }}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Edit Account</a></li>
-                            <li><a href="#">Sign Out</a></li>
+                            <li><a class="navbar-link" href="#"><i class="flaticon stroke user-2"></i> Edit Account</a></li>
+                            <li><a class="navbar-link" href="#"><i class="flaticon stroke logout-1"></i> Sign Out</a></li>
                         </ul>
                     </li>
                 </ul>

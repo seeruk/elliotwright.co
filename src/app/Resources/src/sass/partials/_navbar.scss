@@ -104,18 +104,7 @@
     li {
         @include transition(all 0.2s ease);
 
-        a {
-            @include transition(all 0.2s ease);
-
-            color: $text-muted;
-            display: block;
-            font-size: $font-size-base * 0.7;
-            padding: 20px;
-            width: 100%;
-        }
-
-        a:hover,
-        &.open > a {
+        &.open > .navbar-link {
             color: darken($text-muted, 10%);
             background: darken($white, 3%);
             text-decoration: none;
@@ -124,6 +113,27 @@
         @include media(min-width $screen-tablet) {
             float: left;
         }
+    }
+}
+
+.navbar-link {
+    @include transition(all 0.2s ease);
+
+    color: $text-muted;
+    display: block;
+    font-size: $font-size-base * 0.7;
+    padding: 20px;
+    width: 100%;
+
+    &:hover {
+        color: darken($text-muted, 10%);
+        background: darken($white, 3%);
+        text-decoration: none;
+    }
+
+    i {
+        margin-right: 5px;
+        vertical-align: middle;
     }
 }
 
@@ -235,5 +245,11 @@ $navbar-hamburger-width: 30px;
                 transform: rotate(45deg);
             }
         }
+    }
+}
+
+.navbar-nav {
+    .button {
+        margin: 6px;
     }
 }

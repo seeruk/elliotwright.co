@@ -1,0 +1,71 @@
+/*
+ * This file is part of elliotwright.co
+ *
+ * (c) Elliot Wright <elliot@elliotwright.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * Buttons
+ */
+
+.button {
+    background: $smoke;
+    border-radius: 3px;
+    color: $white;
+    display: inline-block;
+    font-size: $font-size-base * 0.7;
+    font-weight: bold;
+    outline: none;
+    padding: 14px 12px;
+    text-align: center;
+
+    &:hover,
+    &:focus {
+        background: darken($smoke, 3%);
+        text-decoration: none;
+    }
+
+    &:active {
+        box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    }
+
+    i {
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+}
+
+.button-block {
+    display: block;
+    width: auto;
+}
+
+.button-success {
+    background: $green;
+    color: $white;
+
+    &:hover {
+        background: darken($green, 3%);
+    }
+}
+
+.button-create {
+    background: $cyan;
+    color: $white;
+
+    &:hover {
+        background: darken($cyan, 3%);
+    }
+}
+
+.button-info {
+    background: $blue;
+    color: $white;
+
+    &:hover {
+        background: darken($blue, 3%);
+    }
+}
