@@ -12,7 +12,7 @@
         "michelf/php-markdown": "1.4.1",
         "nesbot/carbon": "1.10.0",
         "raulfraile/ladybug": "v1.0.8",
-        "strident/trident": "1.0.6-alpha",
+        "strident/trident": "1.0.6-alpha3",
         "symfony/yaml": "2.5.*"
     },
     "config": {

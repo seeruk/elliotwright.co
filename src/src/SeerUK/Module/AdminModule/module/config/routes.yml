@@ -1,3 +1,7 @@
+am_blog_article_overview:
+    path: /admin/articles/
+    defaults: { _controller: am.controller.article::overviewAction }
+
 am_blog_article_edit:
-    path: /admin/article/edit/{id}
-    defaults: { _controller: SeerUK\Module\AdminModule\Controller\Blog\ArticleController::editAction }
+    path: /admin/articles/edit/{slug}
+    defaults: { _controller: am.controller.article::editAction }

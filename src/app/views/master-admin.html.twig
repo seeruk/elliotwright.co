@@ -23,11 +23,11 @@
         <nav class="navbar-collapse pri-navbar-collapse" role="navigation">
             <div class="navbar-right">
                 <ul class="navbar-nav clearfix">
-                    <li><a href="#" class="button button-block button-success"><i class="flaticon stroke add-window-1"></i> Add Article</a></li>
+                    {# <li><a href="#" class="button button-block button-success"><i class="flaticon stroke add-window-1"></i> Add Article</a></li> #}
                     <li class="dropdown">
                         <a class="navbar-link" href="#" data-dropdown><i class="flaticon stroke paragraph-text-1"></i> Blog <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a class="navbar-link" href="#"><i class="flaticon stroke article-3"></i> Articles</a></li>
+                            <li><a class="navbar-link" href="{{ url('am_blog_article_overview') }}"><i class="flaticon stroke article-3"></i> Articles</a></li>
                             <li><a class="navbar-link" href="#"><i class="flaticon stroke inbox-1"></i> Categories</a></li>
                         </ul>
                     </li>

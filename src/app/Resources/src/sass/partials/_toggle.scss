@@ -1,0 +1,57 @@
+/*
+ * This file is part of elliotwright.co
+ *
+ * (c) Elliot Wright <elliot@elliotwright.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * Toggle
+ */
+
+input[type="checkbox"] {
+    @include appearance(none);
+
+    background-color: darken($white, 2%);
+    border: 1px solid $smokeLight;
+    border-radius: 26px;
+    box-shadow: inset 0 0 0 1px $smokeLight;
+    cursor: pointer;
+    height: 28px;
+    outline: none;
+    position: relative;
+    transition: border .25s .15s, box-shadow .25s .3s, padding .25s;
+    width: 44px;
+    vertical-align: top;
+
+    &:after {
+        background-color: $white;
+        border: 1px solid $smokeLight;
+        border-radius: 24px;
+        box-shadow: inset 0 -3px 3px hsla(0,0%,0%,.025), 0 1px 4px hsla(0,0%,0%,.15), 0 4px 4px hsla(0,0%,0%,.1);
+        content: "";
+        display: block;
+        height: 24px;
+        left: 0;
+        position: absolute;
+        right: 16px;
+        top: 0;
+        transition: border .25s .15s, left .25s .1s, right .15s .175s;
+    }
+
+    &:checked {
+        border-color: $green;
+        box-shadow: inset 0 0 0 13px $green;
+        padding-left: 18px;
+        transition: border .25s, box-shadow .25s, padding .25s .15s;
+
+        &:after {
+            border-color: $green;
+            left: 16px;
+            right: 0;
+            transition: border .25s, left .15s .25s, right .25s .175s;
+        }
+    }
+}

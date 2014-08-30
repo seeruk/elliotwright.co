@@ -15,6 +15,7 @@
     @extend .clearfix;
 
     background: $white;
+    font-size: 14px;
     position: relative;
 
     &.headroom {
@@ -72,9 +73,8 @@
 
     color: $text-muted;
     float: left;
-    font-size: $font-size-base * 0.7;
     font-weight: $font-weight-bold;
-    line-height: 1.3em;
+    line-height: normal;
     padding: 20px;
     text-transform: uppercase;
 
@@ -121,7 +121,6 @@
 
     color: $text-muted;
     display: block;
-    font-size: $font-size-base * 0.7;
     padding: 20px;
     width: 100%;
 
@@ -250,6 +249,6 @@ $navbar-hamburger-width: 30px;
 
 .navbar-nav {
     .button {
-        margin: 6px;
+        margin: 8px;
     }
 }

@@ -1,0 +1,26 @@
+/*
+ * This file is part of elliotwright.co
+ *
+ * (c) Elliot Wright <elliot@elliotwright.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * Sections
+ */
+
+section.main {
+    padding-left: 50px;
+    padding-right: 50px;
+
+    @include media(min-width $screen-tablet) {
+        margin: 0 auto;
+        width: $screen-tablet;
+    }
+
+    @include media(min-width $screen-med) {
+        width: $screen-med;
+    }
+}

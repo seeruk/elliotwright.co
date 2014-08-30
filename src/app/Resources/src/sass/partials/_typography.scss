@@ -66,7 +66,15 @@ blockquote * {
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
+.text-nowrap { white-space: nowrap; }
+.text-ellipsis {
+    max-width: 1000px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
+.text-muted { color: $text-muted; }
 .text-info { color: $text-info; }
 .text-success { color: $text-success; }
 .text-warning { color: $text-warning; }
@@ -74,30 +82,50 @@ blockquote * {
 .text-special { color: $text-special; }
 .text-primary { color: $text-primary; }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $font-weight-light;
+}
+
 h1 {
-    font-size: $font-size-base * 2;
+    font-size: $header-size-base * 2;
 }
 
 h2 {
-    font-size: $font-size-base * 1.5;
+    font-size: $header-size-base * 1.5;
 }
 
 h3 {
-    font-size: $font-size-base * 1.25;
+    font-size: $header-size-base * 1.25;
 }
 
 h4 {
-    font-size: $font-size-base * 1.125;
+    font-size: $header-size-base * 1.125;
 }
 
 h5 {
-    font-size: $font-size-base;
+    font-size: $header-size-base;
 }
 
 h6 {
-    font-size: $font-size-base * 0.8;
+    font-size: $header-size-base * 0.8;
 }
 
 .mono {
     font: $font-mono;
+}
+
+.page-title {
+    margin: 60px 0;
+    vertical-align: middle;
+
+    .title {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
 }
