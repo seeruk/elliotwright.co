@@ -82,6 +82,14 @@ blockquote * {
 .text-special { color: $text-special; }
 .text-primary { color: $text-primary; }
 
+a.text-muted:hover { color: darken($text-muted, 20%); }
+a.text-info:hover { color: darken($text-info, 20%); }
+a.text-success:hover { color: darken($text-success, 20%); }
+a.text-warning:hover { color: darken($text-warning, 20%); }
+a.text-danger:hover { color: darken($text-danger, 20%); }
+a.text-special:hover { color: darken($text-special, 20%); }
+a.text-primary:hover { color: darken($text-primary, 20%); }
+
 h1,
 h2,
 h3,
@@ -117,15 +125,4 @@ h6 {
 
 .mono {
     font: $font-mono;
-}
-
-.page-title {
-    margin: 60px 0;
-    vertical-align: middle;
-
-    .title {
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-    }
 }

@@ -5,103 +5,40 @@
 {% block body %}
 
     <section id="admin-article-list" class="main">
-        <div class="page-title">
+        <section class="page-title">
             <h1 class="title">
                 <span>Articles</span> <small class="text-muted">({{ articles|length }})</small>
             </h1>
+        </section>
+
+        <section class="page-controls">
+            {# <a href="#" class="text-muted"><i class="flatline unchecked"><i class="flatline collapse-down"></i></i></a> #}
+            <a href="#" class="text-muted"><i class="flatline refresh"></i></a>
+            <a href="#" class="text-muted"><i class="flatline plus-sign"></i></a>
+            <a href="#" class="text-danger"><i class="flatline remove-sign"></i></a>
             <span class="pull-right text-muted">Sorted by: <strong><a href="#">Date created<span class="caret"></span></a></strong></span>
-        </div>
+        </section>
 
         <table class="table table-hover table-fixed article-table">
             <tbody>
                 <tr>
                     <td class="text-ellipsis article-title">
-                        A Test Article
-                        <span class="text-muted">- Article content. Hopefully the article will have at least a little bit more content than this?!</span>
+                        <input type="checkbox" /> Vagrant, Docker, and Ansible - Pseudo VM Configuration
+                        <span class="text-muted">- I've gone against the grain a little and done many things here that aren't considered 'proper' by the Docker community.</span>
                     </td>
                     <td class="text-ellipsis article-author">Elliot Wright</td>
                     <td class="text-right article-toggle">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" class="toggle">
                     </td>
                 </tr>
                 <tr>
                     <td class="text-ellipsis article-title">
-                        A Test Article
-                        <span class="text-muted">- Article content. Hopefully the article will have at least a little bit more content than this?!</span>
+                        <input type="checkbox" /> Framework Development Reflection - Trident
+                        <span class="text-muted">- If there's anything I learnt while developing a framework, it's only do it seriously, if you'll actually take it seriously.</span>
                     </td>
                     <td class="text-ellipsis article-author">Elliot Wright</td>
                     <td class="text-right article-toggle">
-                        <input type="checkbox" checked>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-ellipsis article-title">
-                        A Test Article
-                        <span class="text-muted">- Article content. Hopefully the article will have at least a little bit more content than this?!</span>
-                    </td>
-                    <td class="text-ellipsis article-author">Elliot Wright</td>
-                    <td class="text-right article-toggle">
-                        <input type="checkbox" checked>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-ellipsis article-title">
-                        A Test Article
-                        <span class="text-muted">- Article content. Hopefully the article will have at least a little bit more content than this?!</span>
-                    </td>
-                    <td class="text-ellipsis article-author">Elliot Wright</td>
-                    <td class="text-right article-toggle">
-                        <input type="checkbox" checked>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-ellipsis article-title">
-                        A Test Article
-                        <span class="text-muted">- Article content. Hopefully the article will have at least a little bit more content than this?!</span>
-                    </td>
-                    <td class="text-ellipsis article-author">Elliot Wright</td>
-                    <td class="text-right article-toggle">
-                        <input type="checkbox" checked>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-ellipsis article-title">
-                        A Test Article
-                        <span class="text-muted">- Article content. Hopefully the article will have at least a little bit more content than this?!</span>
-                    </td>
-                    <td class="text-ellipsis article-author">Elliot Wright</td>
-                    <td class="text-right article-toggle">
-                        <input type="checkbox" checked>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-ellipsis article-title">
-                        A Test Article
-                        <span class="text-muted">- Article content. Hopefully the article will have at least a little bit more content than this?!</span>
-                    </td>
-                    <td class="text-ellipsis article-author">Elliot Wright</td>
-                    <td class="text-right article-toggle">
-                        <input type="checkbox" checked>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-ellipsis article-title">
-                        A Test Article
-                        <span class="text-muted">- Article content. Hopefully the article will have at least a little bit more content than this?!</span>
-                    </td>
-                    <td class="text-ellipsis article-author">Elliot Wright</td>
-                    <td class="text-right article-toggle">
-                        <input type="checkbox" checked>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-ellipsis article-title">
-                        A Test Article
-                        <span class="text-muted">- Article content. Hopefully the article will have at least a little bit more content than this?!</span>
-                    </td>
-                    <td class="text-ellipsis article-author">Elliot Wright</td>
-                    <td class="text-right article-toggle">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" class="toggle" checked>
                     </td>
                 </tr>
             </tbody>

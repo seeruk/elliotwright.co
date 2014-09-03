@@ -1,0 +1,37 @@
+/*
+ * This file is part of elliotwright.co
+ *
+ * (c) Elliot Wright <elliot@elliotwright.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * Icons
+ */
+
+.icon-circle {
+    border-radius: 30px;
+    border-width: 2px;
+    border-style: solid;
+    display: inline-block;
+    height: 32px;
+    line-height: 24px;
+    margin-right: 5px;
+    padding: 2px;
+    text-align: center;
+    width: 32px;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    > i {
+        display: inline-block;
+    }
+}

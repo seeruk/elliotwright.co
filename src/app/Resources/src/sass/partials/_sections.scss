@@ -24,3 +24,31 @@ section.main {
         width: $screen-med;
     }
 }
+
+section.page-title {
+    border-bottom: 1px solid $white;
+    padding: 60px 0;
+    vertical-align: middle;
+
+    .title {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+section.page-controls {
+    @extend .clearfix;
+
+    line-height: 32px;
+    padding: 20px 0;
+
+    a,
+    a:hover {
+        text-decoration: none;
+    }
+
+    i {
+        font-size: 32px;
+    }
+}
