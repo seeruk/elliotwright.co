@@ -75,13 +75,14 @@ class AbstractApiController
     /**
      * Render JSON response
      *
-     * @param  mixed $data
+     * @param mixed    $data
+     * @param Response $response
      *
      * @return Response
      */
-    protected function renderJson($data)
+    protected function renderJson($data, Response $response = null)
     {
-        $response = new Response();
+        $response = $response ?: new Response();
         $response->headers->set('Content-type', 'application/json');
         $response->setContent($this->serializer->serialize($data, 'json'));
 

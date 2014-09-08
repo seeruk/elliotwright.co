@@ -37,7 +37,9 @@ class ArticlesController extends AbstractApiController
     {
         return $this->cachingProxy->proxy('api.rendered.articles.collection',
             function() {
-                return $this->renderJson($this->articleRepo->findAll());
+                return $this->renderJson([
+                    'articles' => $this->articleRepo->findAll()
+                ]);
             }
         , 3600);
     }
