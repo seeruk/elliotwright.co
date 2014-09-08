@@ -48,6 +48,8 @@ class AbstractApiController
      * Attempt to authenticate the user
      *
      * @return Result|boolean
+     *
+     * @todo Put this in a trait! It should be reusable.
      */
     protected function authenticate()
     {
