@@ -74,8 +74,16 @@ class UserAuthenticator implements AuthenticatorInterface
     /**
      * {@inheritDoc}
      */
+    public function present()
+    {
+        return false;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function supports(TokenInterface $token)
     {
-        return ($token instanceof UserToken);
+        return ($token instanceof UserToken || $token instanceof StatelessUserToken);
     }
 }

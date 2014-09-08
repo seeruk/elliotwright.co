@@ -1,0 +1,9 @@
+api_articles_collection:
+    path: /api/articles/
+    defaults: { _controller: api.controller.articles::collectionAction }
+    methods: [GET]
+
+api_articles_get:
+    path: /api/articles/{id}
+    defaults: { _controller: api.controller.articles::getAction }
+    methods: [GET]

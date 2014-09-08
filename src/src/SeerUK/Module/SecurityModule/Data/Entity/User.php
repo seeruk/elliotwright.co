@@ -13,6 +13,7 @@ namespace SeerUK\Module\SecurityModule\Data\Entity;
 
 use Aegis\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation AS Serializer;
 
 /**
  * User Entity
@@ -44,6 +45,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=128)
+     * @Serializer\Exclude()
      */
     protected $password;
 
