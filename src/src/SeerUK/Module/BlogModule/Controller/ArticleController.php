@@ -34,7 +34,7 @@ class ArticleController extends Controller
      */
     public function viewAction($slug)
     {
-        return $this->get('caching.proxy')->proxy("rendered.blog.article.$slug",
+        return $this->get('caching.proxy')->proxy("blog.articles.$slug",
             function() use ($slug) {
                 $twig = $this->get('bm.templating.engine.twig.string');
                 $ar   = $this->get('bm.repository.article');

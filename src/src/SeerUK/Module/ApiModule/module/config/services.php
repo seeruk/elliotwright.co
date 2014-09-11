@@ -11,6 +11,7 @@ return function($container) {
     $container->set('api.controller.articles', function($c) {
         $controller = new ArticlesController($c->get('request_stack'), $c->get('security'), $c->get('api.serializer'));
         $controller->setArticleRepository($c->get('bm.repository.article'));
+        $controller->setCacheRegistry($c->get('cm.cache_registry'));
         $controller->setCachingProxy($c->get('caching.proxy'));
 
         return $controller;

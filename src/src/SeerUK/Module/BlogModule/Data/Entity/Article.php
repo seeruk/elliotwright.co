@@ -22,7 +22,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @author Elliot Wright <elliot@elliotwright.co>
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SeerUK\Module\BlogModule\Data\Repository\ArticleRepository")
  * @ORM\Table(name="article")
  */
 class Article

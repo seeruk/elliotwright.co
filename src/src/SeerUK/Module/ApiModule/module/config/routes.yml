@@ -7,3 +7,24 @@ api_articles_get:
     path: /api/articles/{id}
     defaults: { _controller: api.controller.articles::getAction }
     methods: [GET]
+    requirements:
+        id: \d+
+
+api_articles_post:
+    path: /api/articles/
+    defaults: { _controller: api.controller.articles::postAction }
+    methods: [POST]
+
+api_articles_patch:
+    path: /api/articles/{id}
+    defaults: { _controller: api.controller.articles::patchAction }
+    methods: [PATCH]
+    requirements:
+        id: \d+
+
+api_articles_delete:
+    path: /api/articles/{id}
+    defaults: { _controller: api.controller.articles::deleteAction }
+    methods: [DELETE]
+    requirements:
+        id: \d+

@@ -37,6 +37,8 @@ class TridentKernel extends AbstractKernel
             new SeerUK\Module\AdminModule\SeerUKAdminModule(),
             new SeerUK\Module\ApiModule\SeerUKApiModule(),
             new SeerUK\Module\BlogModule\SeerUKBlogModule(),
+            new SeerUK\Module\CacheModule\SeerUKCacheModule(),
+            new SeerUK\Module\DoctrineModule\SeerUKDoctrineModule(),
             new SeerUK\Module\GravatarModule\SeerUKGravatarModule(),
             new SeerUK\Module\SecurityModule\SeerUKSecurityModule(),
         ];

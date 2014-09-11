@@ -14,6 +14,7 @@ namespace SeerUK\Module\ApiModule\Controller;
 use Aegis\Aegis;
 use Doctrine\ORM\EntityRepository;
 use SeerUK\Module\ApiModule\Controller\AbstractApiController;
+use SeerUK\Module\CacheModule\Registry\CacheRegistry;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Trident\Component\Caching\CachingProxy;
 use Trident\Component\HttpKernel\Exception\ForbiddenHttpException;
@@ -26,40 +27,98 @@ use Trident\Component\HttpKernel\Exception\ForbiddenHttpException;
 class ArticlesController extends AbstractApiController
 {
     protected $articleRepo;
+    protected $cacheRegistry;
     protected $cachingProxy;
+    protected $entityManager;
+
 
     /**
      * Get all articles
      *
-     * @return JsonResponse
+     * @return Response
      */
     public function collectionAction()
     {
-        return $this->cachingProxy->proxy('api.rendered.articles.collection',
+        return $this->cachingProxy->proxy('api.articles.collection',
             function() {
+                $articles = $this->articleRepo->findAll();
+
                 return $this->renderJson([
-                    'articles' => $this->articleRepo->findAll()
+                    'count'    => count($articles),
+                    'articles' => $articles,
                 ]);
             }
         , 3600);
     }
 
-    public function getAction()
+    /**
+     * Fetch a single article
+     *
+     * @param integer $id
+     *
+     * @return Response
+     */
+    public function getAction($id)
     {
-
+        return $this->cachingProxy->proxy('api.articles.' . $id,
+            function() use ($id) {
+                return $this->renderJson($this->articleRepo->findOneById($id));
+            }
+        , 3600);
     }
 
+    /**
+     * Create a new article
+     *
+     * @return Response
+     */
     public function postAction()
     {
         if ( ! $this->security->isGranted('ROLE_ADMIN')) {
             throw new ForbiddenHttpException('You are not granted access to this area.');
         }
+
+        $response = $this->renderJson([]);
+        $response->setStatusCode(201);
+
+        return $response;
     }
 
-    public function deleteAction()
+    /**
+     * Update a single article
+     *
+     * @param integer $id
+     *
+     * @return Response
+     */
+    public function patchAction($id)
     {
+        if ( ! $this->security->isGranted('ROLE_ADMIN')) {
+            throw new ForbiddenHttpException('You are not granted access to this area.');
+        }
 
+        return $this->renderJson([]);
     }
+
+    /**
+     * Delete a single repository
+     *
+     * @param integer $id
+     *
+     * @return Response
+     */
+    public function deleteAction($id)
+    {
+        if ( ! $this->security->isGranted('ROLE_ADMIN')) {
+            throw new ForbiddenHttpException('You are not granted access to this area.');
+        }
+
+        $response = new Response();
+        $response->setStatusCode(204);
+
+        return $response;
+    }
+
 
     /**
      * Set article repo
@@ -76,6 +135,20 @@ class ArticlesController extends AbstractApiController
     }
 
     /**
+     * Set cache registry
+     *
+     * @param CacheRegistry $cacheRegistry
+     *
+     * @return ArticlesController
+     */
+    public function setCacheRegistry(CacheRegistry $cacheRegistry)
+    {
+        $this->cacheRegistry = $cacheRegistry;
+
+        return $this;
+    }
+
+    /**
      * Set caching proxy
      *
      * @param CachingProxy $cachingProxy
@@ -85,6 +158,20 @@ class ArticlesController extends AbstractApiController
     public function setCachingProxy(CachingProxy $cachingProxy)
     {
         $this->cachingProxy = $cachingProxy;
+
+        return $this;
+    }
+
+    /**
+     * Set entity manager
+     *
+     * @param EntityManager $entityManager
+     *
+     * @return ArticlesController
+     */
+    public function setEntityManager(EntityManager $entityManager)
+    {
+        $this->entityManager = $entityManager;
 
         return $this;
     }
